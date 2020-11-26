@@ -1,0 +1,39 @@
+<div class="body">
+  <div class="btns">
+    <div class="recipe-btn">レシピ投稿
+    </div>
+    <div class="calendar-btn">カレンダー
+    </div>
+    <div class="list-btn">
+      <p>ショッピング</p>
+      <p>リスト</p>
+    </div>
+  </div>
+  <div class="upper-content">
+    <div class="menu-bar">
+      <div class="add-recipe bar-element">
+        + レシピ投稿
+      </div>
+      <div class="calendar bar-element">
+        カレンダー
+      </div>
+      <div class="shopping-list bar-element">
+        <p>ショッピング</p>
+        <p>リスト</p>
+      </div>
+    </div>
+    <div class="tag-bar">
+      <%= render 'tags' %>
+    </div>
+  </div>
+    <%# <div class="banner">
+     News
+    </div> %>
+
+
+  <div class="middle-content">
+    <ul class="recipes-bar">
+      <%= render "recipe" %>
+    </ul>
+  </div>
+</div>
