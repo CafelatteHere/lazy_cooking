@@ -222,7 +222,6 @@ DEPENDENCIES
   mysql2 (>= 0.4.4)
   puma (~> 3.11)
   rails (~> 6.0.0)
-  rake (~> 12.3, >= 12.3.3)
   sass-rails (~> 5)
   selenium-webdriver
   spring

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_28_085658) do
+ActiveRecord::Schema.define(version: 2020_11_27_150232) do
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -20,19 +20,6 @@ ActiveRecord::Schema.define(version: 2020_11_28_085658) do
     t.text "tips"
     t.integer "calories"
     t.boolean "is_public"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "nickname", null: false
-    t.string "name", default: "", null: false
-    t.string "surname", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.date "birthday", null: false
-    t.integer "country_id"
-    t.text "about_me"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
