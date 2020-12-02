@@ -9,7 +9,7 @@
 
 .form {
   width: 80vw;
-  height: 210vh;
+  height: 22-0vh;
   background-color: #fff;
   margin: 100px 0px 40px 0px;
   padding: 40px 60px 30px 60px;
@@ -23,13 +23,14 @@
   margin-top: 20px;
   margin-bottom: 10px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
   text-align: center;
   color: #718598;
+  font-size: 22px;
 }
 
 .explanation-top {
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 8px;
   color: #718598;
 }
@@ -40,6 +41,7 @@
   border: solid 0.5px #C4CCD4;
   height: 45px;
   padding-left: 10px;
+  font-size: 18px;
 }
 
 .field {
@@ -75,6 +77,7 @@ hr {
   font-size: 14px;
   margin-bottom: 5px;
   color: #718598;
+  font-size: 16px;
 }
 
 .required {
@@ -83,23 +86,23 @@ hr {
 
 .name {
   width: 80%;
-  margin: 30px 0px 5px 0px;
+  margin: 40px 0px 5px 0px;
   padding-top: 20px;
-  height: 80px;
-  line-height: 80px;
-  font-size: 26px;
+  height: 85px;
+  line-height: 85px;
+  font-size: 32px;
 }
 
 .name::placeholder {
   color: #D8B4A0;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
 }
 
 .middle-input {
   display: flex;
   width: 80%;
-  margin: 30px 0px;
+  margin: 35px 0px;
   justify-content: space-between;
 }
 
@@ -140,7 +143,7 @@ hr {
 #image{
   width: 100%;
   height: 300px;
-  /* display: none; */
+  opacity: 0;
 }
 
 .portion {
@@ -200,16 +203,18 @@ hr {
 }
 
 .is_public {
-  margin-top: 30px;
+  margin: 40px 0px 10px 0px;
   display: flex;
   align-items: flex-start;
   color: #223843;
+  font-size: 18px;
 }
 
 .checkbox {
   height: 25px;
   width: 25px;
   margin-right: 7px;
+  font-size: 18px;
 }
 
 .submit {
@@ -218,24 +223,26 @@ hr {
 }
 
 .submit-btn {
-  width: 240px;
-  height: 70px;
+  width: 260px;
+  height: 74px;
   border: none;
   margin: 10px 0px;
   color: #223843;
   background-color: #CA987D;
   border-radius: 3px;
+  font-size: 18px;
 }
 
 .back-btn {
-  width: 240px;
-  height: 70px;
+  width: 260px;
+  height: 74px;
   border: none;
   margin: 10px 0px;
   background-color: #C4CCD4;
   text-align: center;
-  line-height: 70px;
+  line-height: 74px;
   color: #223843;
   text-decoration: none;
   border-radius: 3px;
+  font-size: 18px;
 }
