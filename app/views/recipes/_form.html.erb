@@ -14,19 +14,19 @@
         <div class="portion ">
           <div class="explanation"">何人分もしくは何このポーション</div>
           <div class="portion-count">
-            <p class="after-input after-input-btn">-</p>
+            <p class="after-input after-input-btn-required">-</p>
             <%= form.text_field :portion, placeholder: "例）２", class: "form-el portion-input required" %>
-            <p class="after-input">人分</p>
-            <p class="after-input after-input-btn">+</p>
+            <p class="after-input-required">人分</p>
+            <p class="after-input after-input-btn-required">+</p>
           </div>
         </div>
         <div class="time field">
           <div class="explanation">料理にかかる時間</div>
           <div class="time-box ">
             <%= form.text_field :time, placeholder: "例）1", class: "form-el time-input required" %>
-            <p class="after-input">時</p>
+            <p class="after-input-required">時</p>
             <%= form.text_field :time, placeholder: "例）15", class: "form-el time-input required" %>
-            <p class="after-input">分</p>
+            <p class="after-input-required">分</p>
           </div>
         </div>
         <div class="calories field">
@@ -45,6 +45,28 @@
       </div>
     </div>
 <%# portion, time, calories, image input %>
+
+    <div class="ingredients-box">
+      <div class="explanation">材料を入力してください。個数を選べば、自動的に次の材料入力スペースが現れます。</div>
+      <div class="ingredients">
+        <%= form.text_field :time, placeholder: "例）レタス", class: "form-el ingredient-input required" %>
+      <div class="quantity">
+        <%= form.text_field :time, placeholder: "例）100", class: "form-el quantity-input required" %>
+        <p class="after-input-required">グラム</p>
+        <p class="after-input after-input-btn-required">+</p>
+      </div>
+      </div>
+<%# new ingredient %>
+      <div class="ingredients">
+        <%= form.text_field :time, placeholder: "例）トマト", class: "form-el ingredient-input" %>
+      <div class="quantity">
+        <%= form.text_field :time, placeholder: "例）100", class: "form-el quantity-input" %>
+        <p class="after-input">グラム</p>
+        <p class="after-input after-input-btn">-</p>
+      </div>
+      </div>
+
+    </div>
 
     <div class="recipe-content field">
       <%= form.text_area :recipe_content, placeholder: "作り方を入れてください。1500文字までです。", maxlength:"1500", class: "recipe-input required" %>
