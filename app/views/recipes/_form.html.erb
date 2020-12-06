@@ -23,9 +23,10 @@
         <div class="time field">
           <div class="explanation">料理にかかる時間</div>
           <div class="time-box ">
-            <%= form.text_field :time, placeholder: "例）1", class: "form-el time-input required" %>
+            <%= form.text_field :time %>
+              <%# <%= form.select_hour (datetime, options= {prompt: "例）1", start_hour: 0, end_hour: 5})public %> %>
             <p class="after-input-required">時</p>
-            <%= form.text_field :time, placeholder: "例）15", class: "form-el time-input required" %>
+             <%# <%= form.time_select :time, {discard_year: true, discard_month:true, discard_day:true, start_hour: 0, end_hour: 10, minute_step: 5}, {placeholder: "例）1", class: "form-el time-input required"} %>
             <p class="after-input-required">分</p>
           </div>
         </div>
@@ -49,19 +50,19 @@
     <div class="ingredients-box">
       <div class="explanation">材料を入力してください。個数を選べば、自動的に次の材料入力スペースが現れます。</div>
       <div class="ingredients">
-        <%= form.text_field :time, placeholder: "例）レタス", class: "form-el ingredient-input required" %>
+        <%= form.text_field :i_name, placeholder: "例）レタス", class: "form-el ingredient-input required" %>
       <div class="quantity">
-        <%= form.text_field :time, placeholder: "例）100", class: "form-el quantity-input required" %>
-        <p class="after-input-required">グラム</p>
+        <%= form.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input required" %>
+        <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input-required"}) %>
         <p class="after-input after-input-btn-required">+</p>
       </div>
       </div>
 <%# new ingredient %>
       <div class="ingredients">
-        <%= form.text_field :time, placeholder: "例）トマト", class: "form-el ingredient-input" %>
+        <%= form.text_field :i_name, placeholder: "例）トマト", class: "form-el ingredient-input" %>
       <div class="quantity">
-        <%= form.text_field :time, placeholder: "例）100", class: "form-el quantity-input" %>
-        <p class="after-input">グラム</p>
+        <%= form.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input" %>
+        <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input"}) %>
         <p class="after-input after-input-btn">-</p>
       </div>
       </div>
@@ -69,16 +70,16 @@
     </div>
 
     <div class="recipe-content field">
-      <%= form.text_area :recipe_content, placeholder: "作り方を入れてください。1500文字までです。", maxlength:"1500", class: "recipe-input required" %>
+      <%= form.text_area :how_to, placeholder: "作り方を入れてください。1500文字までです。", maxlength:"1500", class: "recipe-input required" %>
     </div>
 
     <div class="about_recipe field">
-      <div class="explanation">レシピの概要</div>
-      <%= form.text_field :about_recipe , placeholder: "例）冬の季節にぴったり、カロリー少なめな晩ご飯;  200文字まで", maxlength: "200", class: "about-input form-el" %>
+      <div class="explanation">レシピのヒント</div>
+      <%= form.text_field :tips , placeholder: "例）〇〇材料がなければ、〇〇で交換できます。20分長く煮込めば、さらに美味しい;  200文字まで", maxlength: "200", class: "about-input form-el" %>
     </div>
   <%# buttons %>
     <div class="is_public field">
-      <input type="checkbox", class="checkbox form-el">
+      <%= form.check_box :is_public, class:"checkbox form-el" %>
       <div class="column-name">レシピを公開にする？</div>
     </div>
 

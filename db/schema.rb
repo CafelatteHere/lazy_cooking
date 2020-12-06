@@ -10,13 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_29_072118) do
+ActiveRecord::Schema.define(version: 2020_12_05_025328) do
+
+  create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "i_name"
+    t.string "quantity", null: false
+    t.integer "measurement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recipe_ingredient_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.bigint "ingredient_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredient_relations_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredient_relations_on_recipe_id"
+  end
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "persons", null: false
-    t.date "time"
-    t.text "recipe", null: false
+    t.integer "portion", null: false
+    t.string "time"
+    t.text "how_to", null: false
     t.text "tips"
     t.integer "calories"
     t.boolean "is_public"
@@ -42,4 +59,6 @@ ActiveRecord::Schema.define(version: 2020_11_29_072118) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "recipe_ingredient_relations", "ingredients"
+  add_foreign_key "recipe_ingredient_relations", "recipes"
 end

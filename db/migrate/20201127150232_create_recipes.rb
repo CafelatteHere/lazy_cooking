@@ -3,9 +3,9 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
     create_table :recipes do |t|
       # t.references    :user, null: false, foreign_key: true
       t.string        :name, null: false
-      t.integer       :persons, null: false
-      t.date          :time
-      t.text          :recipe, null: false
+      t.integer       :portion, null: false
+      t.string          :time
+      t.text          :how_to, null: false
       t.text          :tips
       t.integer       :calories
       t.boolean       :is_public
