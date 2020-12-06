@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+    belongs_to :time_count
   # with_options presence: true do
   #   validates :name, length:{maximum: 35}
   #   validates :portion

@@ -3,6 +3,7 @@
     <p class="action-name">レシピの情報を入力</p>
     <div class="explanation-top"><span>オレンジ色：必須</span>、オレンジ色：任意</div>
     <hr>
+
     <%# <div class="recipe-name field"> %>
       <%= form.text_field :name, placeholder: "レシピ名", maxlength:"45", class: "name field required" %>
       <div class="explanation">45文字まで</div>
@@ -23,10 +24,8 @@
         <div class="time field">
           <div class="explanation">料理にかかる時間</div>
           <div class="time-box ">
-            <%= form.text_field :time %>
-              <%# <%= form.select_hour (datetime, options= {prompt: "例）1", start_hour: 0, end_hour: 5})public %> %>
-            <p class="after-input-required">時</p>
-             <%# <%= form.time_select :time, {discard_year: true, discard_month:true, discard_day:true, start_hour: 0, end_hour: 10, minute_step: 5}, {placeholder: "例）1", class: "form-el time-input required"} %>
+            <%= form.collection_select(:time_count_id, TimeCount.all, :id, :name, {}, {class:"form-el time-input required"}) %>
+              <%# <%= form.select_hour (datetime, options= {prompt: "例）1", start_hour: 0, end_hour: 5})public %>
             <p class="after-input-required">分</p>
           </div>
         </div>
