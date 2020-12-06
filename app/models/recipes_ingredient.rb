@@ -18,8 +18,9 @@ class RecipesIngredient
   end
   # validates :time, allow_blank: true
   def save
+
     recipe = Recipe.create(name: name, portion: portion, time: time, how_to: how_to, tips: tips, calories: calories, is_public: is_public)
-    ingredient = Ingredient.create(i_name: i_name, quantity: quantity, measurement_id: measurement.id)
+    ingredient = Ingredient.create(i_name: i_name, quantity: quantity, measurement_id: measurement_id)
     RecipeIngredientRelation.create(recipe_id: recipe.id, ingredient_id: ingredient.id)
   end
 end

@@ -9,8 +9,10 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = RecipesIngredient.new(recipe_params)
+    binding.pry
     # params[:recipe][:time] = time_join
     if @recipe.valid?
+      binding.pry
       @recipe.save
       redirect_to root_path
     else
