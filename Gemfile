@@ -56,4 +56,6 @@ gem 'devise'
 gem 'rake', '~> 12.3', '>= 12.3.3'
 gem 'active_hash'
 gem 'pry-rails'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
 
