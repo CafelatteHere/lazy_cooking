@@ -7,9 +7,21 @@ function showImg () {
   });
 };
 
-
+function  portionCounter () {
+  const portion_input = document.querySelector('.portion-input');
+  const plus = document.querySelector('.plus');
+  const minus = document.querySelector('.minus');
+  plus.addEventListener('click', ()=>{
+    portion_input.value = Number(portion_input.value);
+    portion_input.value++;
+  });
+  minus.addEventListener('click', ()=>{
+    portion_input.value = Number(portion_input.value);
+    portion_input.value--;
+  });
+};
 
 if (location.pathname.match("recipes/new")){
   window.addEventListener('load', showImg);
-
+  window.addEventListener('load', portionCounter);
 }
