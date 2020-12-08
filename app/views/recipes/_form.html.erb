@@ -15,10 +15,10 @@
         <div class="portion ">
           <div class="explanation"">何人分もしくは何このポーション</div>
           <div class="portion-count">
-            <p class="after-input after-input-btn-required">-</p>
+            <p class="after-input after-input-btn-required minus">-</p>
             <%= form.text_field :portion, placeholder: "例）２", class: "form-el portion-input required" %>
             <p class="after-input-required">人分</p>
-            <p class="after-input after-input-btn-required">+</p>
+            <p class="after-input after-input-btn-required plus">+</p>
           </div>
         </div>
         <div class="time field">
@@ -39,9 +39,10 @@
       </div>
       <div class="image-input">
         <div class="explanation"">クリックしてレシピの写真をアップロードしてください</div>
-          <div class="image">
+        <div class="image-box">
           <%= form.file_field :image, id:"image"  %>
-          </div>
+          <img id = "img-preview", class="hidden" >
+        </div>
       </div>
     </div>
 <%# portion, time, calories, image input %>

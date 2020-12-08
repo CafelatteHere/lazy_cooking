@@ -151,16 +151,34 @@ hr {
   background-color: #D8B4A0;
 }
 
-.image{
+.image-box{
   height: 300px;
   background-color: #C4CCD4;
   border-radius: 3px;
+  width: 100%;
+  position: relative;
 }
 
-#image{
+#image, #img-preview{
   width: 100%;
-  height: 300px;
+  height: 100%;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#image {
   opacity: 0;
+  z-index:3;
+}
+
+#img-preview{
+  z-index:2;
+}
+
+.hidden {
+  display: none;
 }
 
 .portion {
