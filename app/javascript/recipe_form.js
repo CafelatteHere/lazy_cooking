@@ -11,4 +11,5 @@ function showImg () {
 
 if (location.pathname.match("recipes/new")){
   window.addEventListener('load', showImg);
+
 }
