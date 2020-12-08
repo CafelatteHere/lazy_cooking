@@ -13,11 +13,15 @@ function  portionCounter () {
   const minus = document.querySelector('.minus');
   plus.addEventListener('click', ()=>{
     portion_input.value = Number(portion_input.value);
-    portion_input.value++;
+    if (portion_input.value <= 9) {
+      portion_input.value++;
+    }
   });
   minus.addEventListener('click', ()=>{
     portion_input.value = Number(portion_input.value);
-    portion_input.value--;
+    if (portion_input.value >= 1) {
+      portion_input.value--;
+    }
   });
 };
 

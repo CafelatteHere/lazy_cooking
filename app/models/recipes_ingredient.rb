@@ -5,7 +5,7 @@ class RecipesIngredient
 
   with_options presence: true do
     validates :i_name
-    validates :quantity
+    validates :quantity, length:{maximum: 10}
     validates :measurement_id
     validates :name
     validates :portion
