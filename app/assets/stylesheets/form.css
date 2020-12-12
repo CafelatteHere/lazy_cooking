@@ -9,7 +9,7 @@
 
 .form {
   width: 80vw;
-  height: 22-0vh;
+  height: 220vh;
   background-color: #fff;
   margin: 100px 0px 40px 0px;
   padding: 40px 60px 30px 60px;
@@ -106,6 +106,12 @@ hr {
   justify-content: space-between;
 }
 
+.portion-time-calories {
+  display: flex;
+  flex-direction: column;
+
+}
+
 .portion{
   height: 150px;
   margin-right: 15px;
@@ -119,35 +125,30 @@ hr {
   width: 80px;
 }
 
-.after-input {
+.after-input, .after-input-required {
   width: 60px;
   height: 45px;
   background-color: #C4CCD4;
   text-align: center;
   line-height: 45px;
   color: #fff;
+  border: none;
+  border-radius: 2px;
 }
 
 .after-input-required {
-  width: 60px;
-  height: 45px;
   background-color: #D8B4A0;
-  text-align: center;
-  line-height: 45px;
-  color: #fff;
 }
 
-.after-input-btn {
+.after-input-btn, .after-input-btn-required {
   margin: 0px 10px 0px 10px ;
   width: 45px;
   border-radius: 3px;
   background-color: #C4CCD4;
+  cursor: pointer;
 }
 
 .after-input-btn-required {
-  margin: 0px 10px 0px 10px ;
-  width: 45px;
-  border-radius: 3px;
   background-color: #D8B4A0;
 }
 
@@ -157,13 +158,12 @@ hr {
   border-radius: 3px;
   width: 100%;
   position: relative;
-  display: flex;
-  justify-content: center;
+
 }
 
 #image, #img-preview{
   height: 100%;
-
+  cursor: pointer;
   position: absolute;
   top: 0px;
 
@@ -174,6 +174,7 @@ hr {
   opacity: 0;
   z-index:3;
   left: 0px;
+  margin: auto;
 }
 
 #img-preview{
@@ -184,9 +185,6 @@ hr {
   display: none;
 }
 
-.portion {
-
-}
 .time {
   display: flex;
   flex-direction: column;
@@ -231,6 +229,10 @@ hr {
 
 .quantity {
   display: flex;
+}
+
+.quantity-input {
+  width: 65%;
 }
 
 .recipe-content{
@@ -290,6 +292,7 @@ hr {
   background-color: #CA987D;
   border-radius: 3px;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .back-btn {

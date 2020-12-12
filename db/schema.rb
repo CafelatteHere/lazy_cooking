@@ -35,8 +35,6 @@ ActiveRecord::Schema.define(version: 2020_12_07_134622) do
 
   create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "i_name"
-    t.string "quantity", null: false
-    t.integer "measurement_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -44,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_12_07_134622) do
   create_table "recipe_ingredient_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "recipe_id"
     t.bigint "ingredient_id"
+    t.string "quantity", null: false
+    t.integer "measurement_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ingredient_id"], name: "index_recipe_ingredient_relations_on_ingredient_id"
@@ -52,14 +52,16 @@ ActiveRecord::Schema.define(version: 2020_12_07_134622) do
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "portion", null: false
+    t.integer "portions", null: false
     t.integer "time_count_id", null: false
-    t.text "how_to", null: false
+    t.text "recipe", null: false
     t.text "tips"
     t.integer "calories"
     t.boolean "is_public"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,4 +85,5 @@ ActiveRecord::Schema.define(version: 2020_12_07_134622) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "recipe_ingredient_relations", "ingredients"
   add_foreign_key "recipe_ingredient_relations", "recipes"
+  add_foreign_key "recipes", "users"
 end

@@ -25,6 +25,8 @@ function  portionCounter () {
   });
 };
 
+
+
 if (location.pathname.match("recipes/new")){
   window.addEventListener('load', showImg);
   window.addEventListener('load', portionCounter);

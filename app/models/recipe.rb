@@ -1,7 +1,9 @@
 class Recipe < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+
     belongs_to :time_count
     has_one_attached :image
+    belongs_to :user
   # with_options presence: true do
   #   validates :name, length:{maximum: 35}
   #   validates :portion
@@ -17,4 +19,7 @@ class Recipe < ApplicationRecord
 
   has_many :recipe_ingredient_relations
   has_many :ingredients, through: :recipe_ingredient_relations
+
+  accepts_nested_attributes_for :ingredients, allow_destroy: true
+  accepts_nested_attributes_for :recipe_ingredient_relations, allow_destroy: true
 end
