@@ -51,12 +51,11 @@
     <div class="ingredients-box">
       <div class="explanation">材料を入力してください。個数を選べば、自動的に次の材料入力スペースが現れます。</div>
       <div class="ingredients">
-      <%= form.fields_for :ingredient do |f| %>
+      <%= form.fields_for :ingredients do |f| %>
 
         <%= f.text_field :i_name, placeholder: "例）レタス", class: "form-el ingredient-input required" %>
       <% end %>
-      <%= form.fields_for :recipe_ingredient_relation do |f| %>
-
+      <%= form.fields_for :recipe_ingredient_relations do |f| %>
           <div class="quantity">
             <%= f.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input required" %>
             <%= f.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input-required"}) %>
