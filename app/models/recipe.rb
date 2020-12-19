@@ -21,8 +21,7 @@ class Recipe < ApplicationRecord
 
 
 
-  accepts_nested_attributes_for :ingredients, :recipe_ingredient_relations, allow_destroy: true
-  # accepts_nested_attributes_for :recipe_ingredient_relations, allow_destroy: true
+
 
 #   after_initialize :create_ingredient
 
