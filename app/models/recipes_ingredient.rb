@@ -62,6 +62,7 @@ class RecipesIngredient
     end
   end
 
+
     # def validate_allparams
     # with_options presence: true do
     #   validates :i_name #, uniqueness: true
