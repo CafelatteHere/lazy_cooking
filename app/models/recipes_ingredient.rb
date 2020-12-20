@@ -32,7 +32,7 @@ class RecipesIngredient
     end
   end
 
-  attr_accessor :i_name, :quantity, :measurement_id, :name, :image, :portions, :time_count_id, :recipe, :tips, :calories, :is_public, :user_id
+  attr_accessor  :name, :image, :portions, :time_count_id, :recipe, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
 
     with_options presence: true do
       validates :i_name #, uniqueness: true
@@ -52,8 +52,9 @@ class RecipesIngredient
   def save
     return false if invalid?
 
-    recipe.assign_attributes(recipe_params)
-    build_asscociations
+    recipe.build(recipe_params)
+    recipe.ingredients.build(ingredients_params)
+    recipe.recipe_ingredient_relations.build(recipe_ingredient_relations_params)
 
     if recipe.save
       true
@@ -62,21 +63,6 @@ class RecipesIngredient
     end
   end
 
-
-    # def validate_allparams
-    # with_options presence: true do
-    #   validates :i_name #, uniqueness: true
-    #   validates :quantity, length:{maximum: 10}, allow_blank: true
-    #   validates :measurement_id, allow_blank: true
-    #   validates :name
-    #   validates :portions
-    #   validates :time_count_id, numericality: {other_than: 1}
-    #   validates :recipe
-    #   validates :tips, allow_blank: true
-    #   validates :calories, allow_blank: true
-    #   validates :is_public
-    # end
-  # end
   private
 
   def recipe_params
@@ -92,22 +78,17 @@ class RecipesIngredient
     }
   end
 
-  def build_asscociations
-    # recipe_ingredient_relations.ingredients << ingredients
-    # recipe_ingredient_relations.recipes <<  recipes
-    recipe.ingredients << ingredients
-    recipe.recipe_ingredient_relations << recipe_ingredient_relations
+  def ingredients_params
+    {
+      i_name: i_name
+    }
   end
 
+  def recipe_ingredient_relations_params
+    {
+      quantity: quantity,
+      measurement_id: measurement_id
+    }
+  end
 
-
-  #   recipe = Recipe.create(user_id: user_id, name: name, image: image, portions: portions, time_count_id: time_count_id, recipe: recipe, tips: tips, calories: calories, is_public: is_public)
-  #   # ingredients = @recipes_ingredient.ingredients.build
-  #   # ingredient = Ingredient.create(i_name: i_name, quantity: quantity, measurement_id: measurement_id)
-  #   # ingredient = Ingredient.where(i_name: i_name).first_or_initialize
-  #   ingredient = Ingredient.create(id: id, i_name: i_name)
-
-  #   recipe_ingredient_relation = RecipeIngredientRelation.create(recipe_id: recipe.id, ingredient_id: ingredient.id, quantity: quantity, measurement_id: measurement_id)
-
-  # end
 end
