@@ -32,16 +32,16 @@ class RecipesIngredient
     end
   end
 
-  attr_accessor  :name, :image, :portions, :time_count_id, :recipe, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
+  attr_accessor  :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
 
     with_options presence: true do
-      validates :i_name #, uniqueness: true
+      validates :i_name, allow_blank: true #, uniqueness: true
       validates :quantity, length:{maximum: 10}, allow_blank: true
       validates :measurement_id, allow_blank: true
       validates :name
       validates :portions
       validates :time_count_id, numericality: {other_than: 1}
-      validates :recipe
+      validates :content
       validates :tips, allow_blank: true
       validates :calories, allow_blank: true
       validates :is_public
@@ -71,7 +71,7 @@ class RecipesIngredient
       image: image,
       portions: portions,
       time_count_id: time_count_id,
-      recipe: recipe,
+      content: content,
       tips: tips,
       calories: calories,
       is_public: is_public

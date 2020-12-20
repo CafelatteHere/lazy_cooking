@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_134622) do
     t.string "name", null: false
     t.integer "portions", null: false
     t.integer "time_count_id", null: false
-    t.text "recipe", null: false
+    t.text "content", null: false
     t.text "tips"
     t.integer "calories"
     t.boolean "is_public"

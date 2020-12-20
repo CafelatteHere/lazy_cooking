@@ -5,7 +5,7 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       t.string        :name, null: false
       t.integer       :portions, null: false
       t.integer       :time_count_id, null: false
-      t.text          :recipe, null: false
+      t.text          :content, null: false
       t.text          :tips
       t.integer       :calories
       t.boolean       :is_public
