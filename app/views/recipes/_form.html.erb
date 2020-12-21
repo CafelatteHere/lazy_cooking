@@ -1,2 +1,91 @@
-<p></p>
-<%= form.text_field :name, placeholder: "a", class: "form-el" %>
+<body class="form-body">
+  <div class="form">
+    <p class="action-name">レシピの情報を入力</p>
+    <div class="explanation-top"><span>オレンジ色：必須</span>、グレー色：任意</div>
+    <hr>
+
+    <%# <div class="recipe-name field"> %>
+      <%= form.text_field :name, placeholder: "レシピ名", maxlength:"45", class: "name field required" %>
+      <div class="explanation">45文字まで</div>
+     <%# </div> %>
+
+<%# portion, time, calories, image input  %>
+    <div class="middle-input">
+      <div class="portion-time-calories">
+        <div class="portion ">
+          <div class="explanation"">何人分もしくは何このポーション</div>
+          <div class="portion-count">
+            <p class="after-input after-input-btn-required minus">-</p>
+            <%= form.text_field :portions, placeholder: "例）２", class: "form-el portion-input required" %>
+            <p class="after-input-required">人分</p>
+            <p class="after-input after-input-btn-required plus">+</p>
+          </div>
+        </div>
+        <div class="time field">
+          <div class="explanation">料理にかかる時間</div>
+          <div class="time-box ">
+            <%= form.collection_select(:time_count_id, TimeCount.all, :id, :name, {}, {class:"form-el time-input required"}) %>
+              <%# <%= form.select_hour (datetime, options= {prompt: "例）1", start_hour: 0, end_hour: 5})public %>
+            <p class="after-input-required">分</p>
+          </div>
+        </div>
+        <div class="calories field">
+          <div class="explanation">カロリー</div>
+          <div class="calories-box">
+            <%= form.text_field :calories, placeholder: "例）200", class: "calories-input form-el" %>
+            <p class="after-input">Kcal</p>
+          </div>
+        </div>
+      </div>
+      <div class="image-input">
+        <div class="explanation"">クリックしてレシピの写真をアップロードしてください</div>
+        <div class="image-box">
+          <%= form.file_field :image, id:"image"  %>
+          <img id = "img-preview", class="hidden" >
+        </div>
+      </div>
+    </div>
+<%# portion, time, calories, image input %>
+
+<%# new ingredient %>
+    <div class="ingredients-box">
+      <div class="explanation">材料を入力してください。個数を選べば、自動的に次の材料入力スペースが現れます。</div>
+
+      <div class="ingredients">
+      <%= form.fields_for :ingredients do |f| %>
+            <%= f.text_field :i_name, placeholder:"例）レタス", class: "form-el ingredient-input required" %>
+      <% end %>
+
+      <%= form.fields_for :recipe_ingredient_relations do |f| %>
+          <div class="quantity">
+            <%= f.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input required" %>
+            <%= f.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input-required"}) %>
+            <p class="after-input after-input-btn-required">+</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+<%# new ingredient %>
+
+    <div class="recipe-content field">
+      <%= form.text_area :content, placeholder: "作り方を入れてください。1500文字までです。", maxlength:"1500", class: "recipe-input required" %>
+    </div>
+
+    <div class="about_recipe field">
+      <div class="explanation">レシピのヒント</div>
+      <%= form.text_field :tips , placeholder: "例）〇〇材料がなければ、〇〇で交換できます。20分長く煮込めば、さらに美味しい;  200文字まで", maxlength: "200", class: "about-input form-el" %>
+    </div>
+  <%# buttons %>
+    <div class="is_public field">
+      <%= form.check_box :is_public, class:"checkbox form-el" %>
+      <div class="column-name">レシピを公開にする？</div>
+    </div>
+
+    <div class="submit">
+      <%= form.submit 'レシピを投稿する', class:"submit-btn" %>
+      <%= link_to 'トップページへ戻る', root_path, method: :get, class: 'back-btn' %>
+    </div>
+  <%# buttons %>
+
+  </div>
+</body>
