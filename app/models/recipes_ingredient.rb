@@ -35,9 +35,9 @@ class RecipesIngredient
   attr_accessor  :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
 
     with_options presence: true do
-      validates :i_name, allow_blank: true #, uniqueness: true
-      validates :quantity, length:{maximum: 10}, allow_blank: true
-      validates :measurement_id, allow_blank: true
+      validates :i_name  #, uniqueness: true
+      validates :quantity, length:{maximum: 10}
+      validates :measurement_id
       validates :name
       validates :portions
       validates :time_count_id, numericality: {other_than: 1}
@@ -49,24 +49,25 @@ class RecipesIngredient
 
 
 
-  def save
-    return false if invalid?
+    def save
+      return false if invalid?
 
-    recipe.build(recipe_params)
-    recipe.ingredients.build(ingredients_params)
-    recipe.recipe_ingredient_relations.build(recipe_ingredient_relations_params)
+      recipe.assign_attributes(recipe_params)
+      recipe.ingredients.build(ingredients_params)
+      recipe.recipe_ingredient_relations.build(recipe_ingredient_relations_params)
 
-    if recipe.save
-      true
-    else
-      false
+      if recipe.save
+        true
+      else
+        false
+      end
     end
-  end
 
   private
 
   def recipe_params
     {
+      user_id: user_id,
       name: name,
       image: image,
       portions: portions,

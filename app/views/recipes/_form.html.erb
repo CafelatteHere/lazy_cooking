@@ -53,7 +53,7 @@
 
       <div class="ingredients">
       <%= form.fields_for :ingredients do |f| %>
-            <%= f.text_field :i_name, placeholder:"例）レタス", class: "form-el quantity-input required" %>
+            <%= f.text_field :i_name, placeholder:"例）レタス", class: "form-el ingredient-input required" %>
       <% end %>
 
       <%= form.fields_for :recipe_ingredient_relations do |f| %>

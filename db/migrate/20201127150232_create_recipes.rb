@@ -9,7 +9,7 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       t.text          :tips
       t.integer       :calories
       t.boolean       :is_public
-      t.references    :user, null:false, foreign_key: true
+      t.references    :user, foreign_key: true, null: false
       t.timestamps
     end
   end

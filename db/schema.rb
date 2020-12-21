@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_12_07_134622) do
   create_table "recipe_ingredient_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "recipe_id"
     t.bigint "ingredient_id"
-    t.string "quantity", null: false
-    t.integer "measurement_id", null: false
+    t.string "quantity", default: "", null: false
+    t.integer "measurement_id", default: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ingredient_id"], name: "index_recipe_ingredient_relations_on_ingredient_id"
