@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
     if @recipes_ingredient.save
       redirect_to root_path
     else
-      binding.pry
+      # binding.pry
       render action: :new
     end
   end

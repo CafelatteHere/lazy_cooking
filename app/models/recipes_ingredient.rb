@@ -50,15 +50,18 @@ class RecipesIngredient
 
 
     def save
+      binding.pry
       return false if invalid?
-
       recipe.assign_attributes(recipe_params)
       recipe.ingredients.build(ingredients_params)
       recipe.recipe_ingredient_relations.build(recipe_ingredient_relations_params)
 
+
+
       if recipe.save
         true
       else
+        binding.pry
         false
       end
     end
