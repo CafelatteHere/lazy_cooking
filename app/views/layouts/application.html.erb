@@ -13,15 +13,21 @@
   <body>
     <header class="header">
       <div class="logo">
-        <h1>Lazy Cooking</h1>
+        <%= link_to "Lazy Cooking", root_path,  class: "logo" %>
       </div>
       <form action="#" class="search-form">
         <input type="text" class="input-box" placeholder="レシピ名か材料で検索">
         <button class="search-button">検索</button>
       </form>
       <div class="menu">
-        <h3 class="menu-element">Userphoto</h3>
-        <h2 class="menu-element">Username</h2>
+        <div class="photo-name menu-element">
+          <% if current_user.image.attached? %>
+            <h3 class="userphoto"><%= image_tag current_user.image%></h3>
+          <% else %>
+            <h3 class="menu-element"><%= link_to image_tag("user-photo.png", class:"userphoto") %></h3>
+          <% end %>
+            <h2 class="menu-element"><%= current_user.nickname %></h2>
+          </div>
         <h3 class="menu-element">設定</h3>
       </div>
     </header>

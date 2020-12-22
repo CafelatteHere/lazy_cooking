@@ -77,6 +77,8 @@
   width: 90%;
   height: 100%;
   padding: 0px 10px 30px 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .recipe{
   width: 20vw;
@@ -109,6 +111,7 @@
 .about-recipe {
   display: flex;
   justify-content: space-between;
+  text-align: center;
 }
 
 .about-el {

@@ -32,7 +32,7 @@ class RecipesIngredient
     end
   end
 
-  attr_accessor  :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
+  attr_accessor  :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :ingredients_attributes, :recipe_ingredient_relations_attributes
 
     with_options presence: true do
       validates :i_name  #, uniqueness: true
@@ -50,13 +50,11 @@ class RecipesIngredient
 
 
     def save
-      binding.pry
-      return false if invalid?
+
+      # return false if invalid?
       recipe.assign_attributes(recipe_params)
       recipe.ingredients.build(ingredients_params)
       recipe.recipe_ingredient_relations.build(recipe_ingredient_relations_params)
-
-
 
       if recipe.save
         true
@@ -84,14 +82,14 @@ class RecipesIngredient
 
   def ingredients_params
     {
-      i_name: i_name
+      i_name: ingredients_attributes[:i_name]
     }
   end
 
   def recipe_ingredient_relations_params
     {
-      quantity: quantity,
-      measurement_id: measurement_id
+      quantity: recipe_ingredient_relations_attributes[:quantity],
+      measurement_id: recipe_ingredient_relations_attributes[:measurement_id]
     }
   end
 

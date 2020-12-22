@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipe = Recipe.all
+    @recipes = Recipe.all
   end
 
   def new
@@ -9,7 +9,6 @@ class RecipesController < ApplicationController
 
   def create
     @recipes_ingredient = RecipesIngredient.new(recipes_ingredient_params)
-
 
     if @recipes_ingredient.save
       redirect_to root_path
