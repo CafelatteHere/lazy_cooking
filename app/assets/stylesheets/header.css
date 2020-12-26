@@ -48,7 +48,7 @@
   width: 30vw;
   height: 50px;
   display: flex;
-  justify-items: flex-end;
+  justify-content: flex-end;
   align-items: center;
 }
 

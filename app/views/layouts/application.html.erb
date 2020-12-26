@@ -20,15 +20,29 @@
         <button class="search-button">検索</button>
       </form>
       <div class="menu">
+        <% if user_signed_in? %>
         <div class="photo-name menu-element">
           <% if current_user.image.attached? %>
             <h3 class="userphoto"><%= image_tag current_user.image%></h3>
           <% else %>
             <h3><%= link_to image_tag("user-photo.png", class:"userphoto") %></h3>
           <% end %>
-            <h2 class="menu-element"><%= current_user.nickname %></h2>
+          <h2 class="menu-element"><%= current_user.nickname %></h2>
           </div>
+        <% else %>
+          <%= link_to 'ログイン', user_session_path, method: :get, class:"menu-element" %>
+        <% end %>
+        <% if user_signed_in? %>
         <h3 class="menu-element">設定</h3>
+          <ul class="settings">
+            <li>
+              <%= link_to 'プロフィル編集', edit_user_registration_path(current_user.id), method: :get %>
+            </li>
+            <li>
+              <%= link_to 'ログアウト', destroy_user_session_path(current_user.id), method: :delete %>
+            </li>
+          </ul>
+        <% end %>
       </div>
     </header>
     <%= yield %>
