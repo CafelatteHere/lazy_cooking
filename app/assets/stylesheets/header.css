@@ -44,23 +44,21 @@
   color: #223843;
 }
 
+.menu {
+  width: 30vw;
+  height: 50px;
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
+}
+
 .userphoto {
   height: 40px;
   width: 40px;
   border-radius: 50%;
 }
 
-
-.menu {
-  width: 30vw;
-  height: 50px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .menu-element {
-  margin-right: 10px;
   color: #223843;
   font-size: 20px;
 }

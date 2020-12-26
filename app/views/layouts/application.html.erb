@@ -24,7 +24,7 @@
           <% if current_user.image.attached? %>
             <h3 class="userphoto"><%= image_tag current_user.image%></h3>
           <% else %>
-            <h3 class="menu-element"><%= link_to image_tag("user-photo.png", class:"userphoto") %></h3>
+            <h3><%= link_to image_tag("user-photo.png", class:"userphoto") %></h3>
           <% end %>
             <h2 class="menu-element"><%= current_user.nickname %></h2>
           </div>

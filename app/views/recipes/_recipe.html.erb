@@ -1,10 +1,13 @@
 <div class="recipe">
-  <div class="name"><%= recipe.name %></div>
-  <div class="image">image</div>
+  <div class="recipe-top"><% link_to  recipe_path(recipe.id) %>
+    <div class="recipe-name"><%= recipe.name %></div>
+    <%= image_tag recipe.image, class: 'recipe-image' if recipe.image.attached? %>
+  </div>
+
   <div class="about-recipe">
-    <div class="portion about-el"><%= recipe.portions %></div>
-     <div class="time about-el"><%= recipe.time_count_id%>分</div>
-     <div class="calories about-el"><%= recipe.calories %>kcal</div>
+    <div class="recipe_portion about-el"><%= recipe.portions %>人分</div>
+    <div class="time about-el"><%= recipe.time_count_id%>分</div>
+    <div class="recipe-calories about-el"><%= recipe.calories %>kcal</div>
   </div>
   <div class="recipe-content">
      <div class="ingredients">
@@ -16,7 +19,8 @@
       </ul>
     </div>
     <div class="tags">
-      drink
+      <a href="" class="tag">drink</a>
+      <a href="" class="tag">salad</a>
     </div>
   </div>
   <div class="social">

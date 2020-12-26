@@ -53,6 +53,7 @@ class RecipesIngredient
 
       # return false if invalid?
       recipe.assign_attributes(recipe_params)
+      # recipe.save
       recipe.ingredients.build(ingredients_params)
       recipe.recipe_ingredient_relations.build(recipe_ingredient_relations_params)
 
