@@ -220,6 +220,7 @@ hr {
 .ingredients {
   width: 100%;
   display: flex;
+  flex-direction: column;
 }
 
 .ingredient-input {
@@ -229,6 +230,7 @@ hr {
 
 .quantity {
   display: flex;
+  flex-direction: column;
 }
 
 .quantity-input {
