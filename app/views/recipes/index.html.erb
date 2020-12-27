@@ -35,7 +35,9 @@
 
   <div class="middle-content">
     <ul class="recipes-bar">
-      <%= render "recipe" %>
+      <% @recipes.each do |recipe| %>
+        <%= render partial: "recipe", locals: {recipe: recipe} %>
+      <% end %>
     </ul>
   </div>
 </div>

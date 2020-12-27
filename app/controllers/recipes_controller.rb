@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipe = Recipe.all
+    @recipes = Recipe.all
   end
 
   def new
@@ -9,12 +9,11 @@ class RecipesController < ApplicationController
 
   def create
     @recipes_ingredient = RecipesIngredient.new(recipes_ingredient_params)
+    @recipes_ingredient.save
 
-
-    if @recipes_ingredient.save
+    if @recipe.save && @ingredient.save && @recipe_ingredient_relations.save
       redirect_to root_path
     else
-      # binding.pry
       render action: :new
     end
   end
@@ -28,6 +27,7 @@ class RecipesController < ApplicationController
   private
 
   def recipes_ingredient_params
-    params.require(:recipes_ingredient).permit(:name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, ingredients_attributes: [:i_name], recipe_ingredient_relations_attributes: [:quantity, :measurement_id] ).merge(user_id: current_user.id)
+    params.require(:recipes_ingredient).permit(:name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :ingredient, :recipe_ingredient_relations, :i_name, :quantity, :measurement_id).merge(user_id: current_user.id)
+    # params.require(:recipes_ingredient).permit(:name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, ingredients_attributes: [:i_name], recipe_ingredient_relations_attributes: [:quantity, :measurement_id] ).merge(user_id: current_user.id)
   end
 end

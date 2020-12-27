@@ -52,18 +52,22 @@
       <div class="explanation">材料を入力してください。個数を選べば、自動的に次の材料入力スペースが現れます。</div>
 
       <div class="ingredients">
+<%#
       <%= form.fields_for :ingredients do |f| %>
-            <%= f.text_field :i_name, placeholder:"例）レタス", class: "form-el ingredient-input required" %>
-      <% end %>
+            <%= form.text_field :i_name, placeholder:"例）レタス", class: "form-el quantity-input required" %>
+            <%= form.text_field :i_name, placeholder:"例）レタス", class: "form-el quantity-input required" %>
+      <%# <% end %>
 
-      <%= form.fields_for :recipe_ingredient_relations do |f| %>
+      <%# <%= form.fields_for :recipe_ingredient_relations do |f| %>
           <div class="quantity">
-            <%= f.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input required" %>
-            <%= f.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input-required"}) %>
+            <%= form.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input required" %>
+            <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input-required"}) %>
+            <%= form.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input required" %>
+            <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input-required"}) %>
             <p class="after-input after-input-btn-required">+</p>
           </div>
         </div>
-      <% end %>
+      <%# <% end %>
     </div>
 <%# new ingredient %>
 

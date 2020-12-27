@@ -1,37 +1,29 @@
 <div class="recipe">
-  <div class="name">コーヒー</div>
-  <div class="image">image</div>
+  <div class="recipe-top"><% link_to  recipe_path(recipe.id) %>
+    <div class="recipe-name"><%= recipe.name %></div>
+    <%= image_tag recipe.image, class: 'recipe-image' if recipe.image.attached? %>
+  </div>
+
   <div class="about-recipe">
-    <div class="portion about-el">２人分</div>
-     <div class="time about-el">5分</div>
-     <div class="calories about-el">2 kcal</div>
+    <div class="recipe_portion about-el"><%= recipe.portions %>人分</div>
+    <div class="time about-el"><%= recipe.time_count_id%>分</div>
+    <div class="recipe-calories about-el"><%= recipe.calories %>kcal</div>
   </div>
   <div class="recipe-content">
      <div class="ingredients">
       材料：
       <ul class="list">
-        water, coffee
+        <% recipe.ingredients.each do |i|%>
+          <%= i.i_name %>
+        <% end %>
       </ul>
     </div>
-    <div class="how_to">
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-    </div>
-    <div class="tips">
-      シナモンを入れる
-    </div>
     <div class="tags">
-      drink
+      <a href="" class="tag">drink</a>
+      <a href="" class="tag">salad</a>
     </div>
   </div>
   <div class="social">
-    <div class="is_public">check
-    </div>
     <div class="like">like!
     </div>
     <div class="to-favourite">
