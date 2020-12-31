@@ -5,19 +5,32 @@ class RecipesController < ApplicationController
 
   def new
     @recipes_ingredient = RecipesIngredient.new
+    # @recipe = RecipesIngredient.new
+    # @ingredient = RecipesIngredient.new
+    # @recipe_ingredient_relations = RecipesIngredient.new
   end
 
   def create
     @recipes_ingredient = RecipesIngredient.new(recipes_ingredient_params)
     @recipes_ingredient.save
 
-    if @recipe.save && @ingredient.save && @recipe_ingredient_relations.save
+    # @recipe = RecipesIngredient.new(recipes_ingredient_params)
+    # @ingredient = RecipesIngredient.new(recipes_ingredient_params)
+    # @recipe_ingredient_relations = RecipesIngredient.new(recipes_ingredient_params)
+
+    if true
+    # if @recipe.save && @ingredient.save && @recipe_ingredient_relations.save
       redirect_to root_path
     else
       render action: :new
     end
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to root_path
+  end
   # def search
   #   return nil if params[:keyword] == ""
   #   ingredient = Ingredient.where(['i_name LIKE ?', "%#{params[:keyword]}%"])

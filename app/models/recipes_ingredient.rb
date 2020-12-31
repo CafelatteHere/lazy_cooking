@@ -24,7 +24,13 @@ class RecipesIngredient
       recipe.save
       ingredient.save
 
-      RecipeIngredientRelation.create(quantity: quantity, measurement_id: measurement_id, recipe_id: recipe.id, ingredient_id:ingredient.id)
+      recipe_ingredient_relations = RecipeIngredientRelation.create(quantity: quantity, measurement_id: measurement_id, recipe_id: recipe.id, ingredient_id:ingredient.id)
+      return false if invalid?
+      if recipe.save && ingredient.save && recipe_ingredient_relations.save
+        true
+         else
+        false
+         end
     end
 
 end

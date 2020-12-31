@@ -16,8 +16,8 @@ class Recipe < ApplicationRecord
   #   validates :tips, length:{maximum: 255}
   #   validates :calories, length:{maximum: 4}
   # end
-  has_many :recipe_ingredient_relations
-  has_many :ingredients, through: :recipe_ingredient_relations
+  has_many :recipe_ingredient_relations, dependent: :destroy
+  has_many :ingredients, through: :recipe_ingredient_relations, dependent: :destroy
 
 
 

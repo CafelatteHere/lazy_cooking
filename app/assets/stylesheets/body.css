@@ -96,12 +96,31 @@
   margin-bottom: 20px;
 }
 
+.recipe-top {
+  width: 100%;
+}
+
+.recipe-header {
+  display: flex;
+  width: 100%;
+}
+
 .recipe-name {
+  width: 85%;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
   padding: 10px 0px 10px 0px;
   border-bottom: solid 1px #728597;
+}
+
+.edit, .delete {
+  width: 3%;
+}
+
+.pencil, .trash{
+  width: 25px;
+  height: 25px;
 }
 
 .recipe-image {
@@ -186,3 +205,7 @@
   box-shadow: 2px 3px 4px 0px #D0D6DC;
 }
 /* buttons */
+
+.hide{
+  display: none;
+}
