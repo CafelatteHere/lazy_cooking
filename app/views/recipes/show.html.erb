@@ -1,42 +1,49 @@
-<div class="recipe">
-  <div class="name"><%= recipe.name %></div>
-  <div class="image">image</div>
-  <div class="about-recipe">
-    <div class="portion about-el"><%= recipe.portions %></div>
-     <div class="time about-el"><%= recipe.time_count_id%>分</div>
-     <div class="calories about-el"><%= recipe.calories %>kcal</div>
-  </div>
-  <div class="recipe-content">
-     <div class="ingredients">
-      材料：
-      <ul class="list">
-        water, coffee
-      </ul>
+<div class="body-show">
+  <div class="recipe-show">
+    <div class="name-show"><%= @recipe.name %></div>
+    <div class="line"></div>
+    <div class="middle-show">
+      <div class="left-show">
+      <div class="image"><%= image_tag @recipe.image if @recipe.image.attached? %></div>
     </div>
-    <div class="how_to">
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
-      豆を入れる。水を入れる。コーヒーを煮る。
+    <div class="right-show">
+      <div class="ingredients">
+        材料：
+        <ul class="list">
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li><%= ingredient.i_name %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="details-show">
+        <div class="details-el">量：<%= @recipe.portions %>人分</div>
+        <div class="details-el">作成時間：<%= @recipe.time_count_id%>分</div>
+        <div class="details-el">カロリ：<%= @recipe.calories %>kcal</div>
+      </div>
     </div>
-    <div class="tips">
-      シナモンを入れる
     </div>
-    <div class="tags">
+  <div class="line"></div>
+  <div class="bottom-show">
+    <div class="bottom-show-el">
+      <%= simple_format @recipe.content%>
+    </div>
+    <div class="bottom-show-el">
+      <%= simple_format @recipe.tips %>
+    </div>
+    <div class="tags bottom-show-el">
       drink
     </div>
   </div>
-  <div class="social">
-    <div class="is_public">check
+  <div class="line"></div>
+  <div class="social-show">
+    <div class="social-show-el">check
     </div>
-    <div class="like">like!
+    <div class="social-show-el">like!
     </div>
-    <div class="to-favourite">
+    <div class="social-show-el">
       added!
     </div>
   </div>
 
+</div>
 </div>

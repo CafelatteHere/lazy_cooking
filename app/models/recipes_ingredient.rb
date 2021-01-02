@@ -33,4 +33,11 @@ class RecipesIngredient
          end
     end
 
+    # def persisted?
+    #   @recipe.persisted? && @ingredient.persisted? && @recipe_ingredient_relations.persisted?
+    # end
+
+    def id
+      @recipe.id
+    end
 end

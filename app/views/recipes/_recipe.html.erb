@@ -1,16 +1,22 @@
 <div class="recipe">
-  <div class="recipe-top"><% link_to recipe_path(recipe.id), method: :get %>
+
+
+  <div class="recipe-top">
+
     <div class="recipe-header">
       <div class="edit">
         <%=link_to (image_tag 'pencil.png', class:"pencil hide"), edit_recipe_path(recipe.id), method: :get %>
       </div>
-      <div class="recipe-name"><%= recipe.name %></div>
+      <div class="recipe-name"><%= link_to recipe.name, recipe_path(recipe.id) %></div>
       <div class="delete">
         <%= link_to (image_tag 'trash.png', class:"trash hide"), recipe_path(recipe.id), method: :delete %>
       </div>
     </div>
+     <%= link_to recipe_path(recipe.id), method: :get  do %>
     <%= image_tag recipe.image, class: 'recipe-image' if recipe.image.attached? %>
+    <% end %>
   </div>
+
 
   <div class="about-recipe">
     <div class="recipe_portion about-el"><%= recipe.portions %>人分</div>

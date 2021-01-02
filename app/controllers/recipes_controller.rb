@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.includes(:user)
   end
 
   def new
@@ -25,6 +25,39 @@ class RecipesController < ApplicationController
       render action: :new
     end
   end
+
+  # def edit
+  #   @recipe = Recipe.find(params[:id])
+  #   @ingredients = @recipe.ingredients
+  #   @recipe_ingredient_relations = @recipe.recipe_ingredient_relations
+  #   @recipes_ingredient = RecipesIngredient.new(name: @recipe.name, image: @recipe.image,
+  #     portions: @recipe.portions, time_count_id: @recipe.time_count_id, content: @recipe.content,
+  #     tips: @recipe.tips, calories: @recipe.calories, is_public: @recipe.is_public)
+
+  #   # , quantity: recipe_ingredient_relations.quantity, measurement_id: recipe_ingredient_relations.measurement_id)
+
+
+  #   # @recipe.save
+  #   # redirect_to root_path
+  # end
+
+  # def update
+  #   @recipe = Recipe.find(params[:id])
+  #   @ingredients = @recipe.ingredients
+  #   @recipe_ingredient_relations = @recipe.recipe_ingredient_relations
+  #   # @recipes_ingredient = RecipesIngredient.new(params[:recipes_ingredient])
+  #   if @recipe.update(recipes_ingredient_params)
+  #     redirect_to root_path
+  #   else
+  #     render 'edit'
+  #   end
+  # end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
+
 
   def destroy
     @recipe = Recipe.find(params[:id])
