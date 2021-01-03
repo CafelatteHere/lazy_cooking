@@ -15,7 +15,8 @@
   width: 20vw;
   color: #D77A61;
   font-size: 20px;
-  padding-left: 30px;
+  padding-left: 15px;
+  font-size: 22px;
 }
 
 .search-form {
@@ -47,11 +48,17 @@
   width: 30vw;
   height: 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
 }
 
+.userphoto {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
 .menu-element {
-  margin-right: 10px;
   color: #223843;
+  font-size: 20px;
 }

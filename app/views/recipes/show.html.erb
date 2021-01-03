@@ -1,0 +1,59 @@
+<div class="body-show">
+  <div class="recipe-show">
+    <div class="name-show"><%= @recipe.name %></div>
+    <div class="line"></div>
+    <div class="middle-show">
+      <div class="left-show">
+      <div class="image"><%= image_tag @recipe.image if @recipe.image.attached? %></div>
+    </div>
+    <div class="right-show">
+      <div class="ingredients">
+        材料：
+        <ul class="list">
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li><%= ingredient.i_name %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="details-show">
+        <div class="details-el">量：<%= @recipe.portions %>人分</div>
+        <div class="details-el">作成時間：<%= @recipe.time_count_id%>分</div>
+        <div class="details-el">カロリ：<%= @recipe.calories %>kcal</div>
+      </div>
+    </div>
+    </div>
+  <div class="line"></div>
+  <div class="bottom-show">
+    <div class="bottom-show-el">
+      <%= simple_format @recipe.content%>
+    </div>
+    <div class="bottom-show-el">
+      <%= simple_format @recipe.tips %>
+    </div>
+    <div class="tags bottom-show-el">
+      drink
+    </div>
+  </div>
+  <div class="line"></div>
+  <% if current_user == @recipe.user %>
+    <div class="edit-delete">
+      <div class="edit-btn-show">
+        <%=link_to '編集', edit_recipe_path(@recipe.id), method: :get %>
+      </div>
+      <div class="delete-btn-show">
+        <%= link_to '消去', recipe_path(@recipe.id), method: :delete %>
+      </div>
+    </div>
+  <% else %>
+    <div class="social-show">
+      <div class="social-show-el">check
+      </div>
+      <div class="social-show-el">like!
+      </div>
+      <div class="social-show-el">
+        added!
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>

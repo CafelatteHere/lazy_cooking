@@ -1,0 +1,91 @@
+.body-show{
+  width: 100vw;
+  height: auto;
+  min-height: calc(100vh - 130px);
+  background-color: #F9F4F1;
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+.recipe-show {
+  width: 70%;
+  height: 100%;
+  background-color: #fff;
+  margin-top: 100px;
+  padding: 0px 40px;
+  /* overflow: scroll; */
+  margin-bottom: 30px;
+}
+
+.name-show{
+  /* text-align: center; */
+  height: 80px;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px 0px;
+  color: #223843;
+  display: flex;
+  align-items: center;
+}
+
+.middle-show {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.left-show {
+  width: 50% max-content;
+}
+
+.right-show {
+  width: calc(100% - left-show);
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-show{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.details-el{
+  padding-top: 15px;
+  padding-right: 20px;
+}
+
+.bottom-show{
+  padding: 10px 0px;
+}
+
+.bottom-show-el {
+  padding: 10px 0px;
+}
+
+.social-show, .edit-delete {
+  width: 50%;
+  height: 30px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.edit-delete{
+  width: 25%;
+}
+
+.edit-btn-show, .delete-btn-show {
+  width: 90px;
+  height: 50px;
+  background-color: #D8B4A0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-btn-show{
+  background-color: #e3b5ba;
+}
