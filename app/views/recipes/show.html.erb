@@ -35,15 +35,25 @@
     </div>
   </div>
   <div class="line"></div>
-  <div class="social-show">
-    <div class="social-show-el">check
+  <% if current_user == @recipe.user %>
+    <div class="edit-delete">
+      <div class="edit-btn-show">
+        <%=link_to '編集', edit_recipe_path(@recipe.id), method: :get %>
+      </div>
+      <div class="delete-btn-show">
+        <%= link_to '消去', recipe_path(@recipe.id), method: :delete %>
+      </div>
     </div>
-    <div class="social-show-el">like!
+  <% else %>
+    <div class="social-show">
+      <div class="social-show-el">check
+      </div>
+      <div class="social-show-el">like!
+      </div>
+      <div class="social-show-el">
+        added!
+      </div>
     </div>
-    <div class="social-show-el">
-      added!
-    </div>
-  </div>
-
+  <% end %>
 </div>
 </div>

@@ -2,8 +2,7 @@
   width: 100vw;
   height: auto;
   background-color: #F9F4F1;
-  /* display: flex; */
-
+  min-height: calc(100vh - 130px);
 }
 
 .upper-content {

@@ -13,7 +13,7 @@
     <div class="middle-input">
       <div class="portion-time-calories">
         <div class="portion ">
-          <div class="explanation"">何人分もしくは何このポーション</div>
+          <div class="explanation"">何人分もしくはポーションの数</div>
           <div class="portion-count">
             <p class="after-input after-input-btn-required minus">-</p>
             <%= form.text_field :portions, placeholder: "例）２", class: "form-el portion-input required" %>
@@ -48,26 +48,31 @@
 <%# portion, time, calories, image input %>
 
 <%# new ingredient %>
-    <div class="ingredients-box">
+    <div class="ingredients-wrapper">
       <div class="explanation">材料を入力してください。個数を選べば、自動的に次の材料入力スペースが現れます。</div>
 
-      <div class="ingredients">
-<%#
-      <%= form.fields_for :ingredients do |f| %>
-            <%= form.text_field :i_name, placeholder:"例）レタス", class: "form-el quantity-input required" %>
-            <%= form.text_field :i_name, placeholder:"例）レタス", class: "form-el quantity-input required" %>
-      <%# <% end %>
-
-      <%# <%= form.fields_for :recipe_ingredient_relations do |f| %>
-          <div class="quantity">
-            <%= form.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input required" %>
-            <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input-required"}) %>
+      <div class="ingredients-box">
+        <%# <%= form.fields_for :ingredients do |f| %>
+        <div class="form-ingredients">
+            <%= form.text_field :i_name, placeholder:"例）レタス", class: "form-el ingredient-input required" %>
+            <%= form.text_field :i_name, placeholder:"例）レタス", class: "form-el ingredient-input" %>
+        </div>
+        <%# <% end %>
+        <%# <%= form.fields_for :recipe_ingredient_relations do |f| %>
+        <div class="form-quantity">
+          <div class="quantity-set">
             <%= form.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input required" %>
             <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input-required"}) %>
             <p class="after-input after-input-btn-required">+</p>
           </div>
+           <div class="quantity-set">
+            <%= form.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input" %>
+            <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input"}) %>
+            <p class="after-input after-input-btn">+</p>
+           </div>
         </div>
-      <%# <% end %>
+        <%# <% end %>
+      </div>
     </div>
 <%# new ingredient %>
 
