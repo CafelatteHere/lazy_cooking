@@ -9,4 +9,14 @@ class CalendarsController < ApplicationController
     @wdays = ['日', '月', '火', '水', '木', '金', '土']
     @wday = @wdays[@i]
   end
+
+  def search
+    return nil if params[:keyword] == ""
+    recipe = Recipe.where(['name LIKE ?', "%#{params[:keyword]}%"])
+    render json:{ keyword: recipe }
+  end
+
+
+  private
+
 end
