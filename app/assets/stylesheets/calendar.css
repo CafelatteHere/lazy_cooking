@@ -69,7 +69,7 @@ span {
   z-index: 3;
 }
 
-/* .modal {
+.modal {
   width: 600px;
   height: 300px;
   position: fixed;
@@ -83,8 +83,8 @@ span {
   flex-direction: column;
   border-radius: 3px;
   align-items: flex-end;
-} */
-/*
+}
+
 .modal-close {
   width: 30px;
   height: 30px;
@@ -95,6 +95,7 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .modal-content{
@@ -121,4 +122,8 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
-} */
+}
+
+.hide {
+  display: none;
+}

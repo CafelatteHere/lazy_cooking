@@ -1,7 +1,7 @@
 class RecipesIngredient
   include ActiveModel::Model
 
-  attr_accessor  :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
+  attr_accessor :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
 
     with_options presence: true do
       validates :i_name  #, uniqueness: true
@@ -15,6 +15,7 @@ class RecipesIngredient
       validates :calories, allow_blank: true
       validates :is_public
     end
+
 
 
 
@@ -33,11 +34,12 @@ class RecipesIngredient
          end
     end
 
+
     # def persisted?
     #   @recipe.persisted? && @ingredient.persisted? && @recipe_ingredient_relations.persisted?
     # end
 
-    def id
-      @recipe.id
-    end
+    # def id
+    #   @recipe.id
+    # end
 end

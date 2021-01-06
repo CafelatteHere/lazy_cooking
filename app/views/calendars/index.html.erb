@@ -1,57 +1,57 @@
 <div class="calendar-body">
   <div class="cal-top">
-    <h2 class="cal-top-el cal-month"><span>12</span>月</h2>
+    <h2 class="cal-top-el cal-month"><span><%= @month %></span>月</h2>
     <div class="week-field">
-      <h2 class="cal-top-el">今週：12月1日ー12月7日</h2>
+      <h2 class="cal-top-el">今週：<%= @month %>月<%= @day %>日ー<%= @month %>月<%= @day + 6 %>日</h2>
     </div>
   </div>
   <div class="cal-week">
     <div class="wday sun">
       <div class="wday-name">
-        <div class="wday-weekday">日</div>
-        <div class="wday-date">1日</div>
+        <div class="wday-weekday"><%= @wdays[@i]%></div>
+        <div class="wday-date"><%= @day %>日</div>
       </div>
       <div class="wday-content"></div>
     </div>
     <div class="wday mon">
       <div class="wday-name">
-        <div class="wday-weekday">月</div>
-        <div class="wday-date">2日</div>
+        <div class="wday-weekday"><%= @wdays[@i + 1]%></div>
+        <div class="wday-date"><%= @day + 1 %>日</div>
       </div>
       <div class="wday-content"></div>
     </div>
     <div class="wday tue">
       <div class="wday-name">
-        <div class="wday-weekday">火</div>
-        <div class="wday-date">3日</div>
+        <div class="wday-weekday"><%= @wdays[@i + 2]%></div>
+        <div class="wday-date"><%= @day + 2%>日</div>
       </div>
       <div class="wday-content"></div>
     </div>
     <div class="wday wen">
       <div class="wday-name">
-        <div class="wday-weekday">水</div>
-        <div class="wday-date">4日</div>
+        <div class="wday-weekday"><%= @wdays[@i + 3]%></div>
+        <div class="wday-date"><%= @day + 3 %>日</div>
       </div>
       <div class="wday-content"></div>
     </div>
     <div class="wday thu">
       <div class="wday-name">
-        <div class="wday-weekday">木</div>
-        <div class="wday-date">5日</div>
+        <div class="wday-weekday"><%= @wdays[@i + 4]%></div>
+        <div class="wday-date"><%= @day + 4 %>日</div>
       </div>
       <div class="wday-content"></div>
     </div>
     <div class="wday fri">
       <div class="wday-name">
-        <div class="wday-weekday">金</div>
-        <div class="wday-date">6日</div>
+        <div class="wday-weekday"><%= @wdays[@i + 5]%></div>
+        <div class="wday-date"><%= @day + 5%>日</div>
       </div>
       <div class="wday-content"></div>
     </div>
     <div class="wday sat">
       <div class="wday-name">
-        <div class="wday-weekday">土</div>
-        <div class="wday-date">7日</div>
+        <div class="wday-weekday"><%= @wdays[@i + 6]%></div>
+        <div class="wday-date"><%= @day + 6 %>日</div>
       </div>
       <div class="wday-content"></div>
     </div>
@@ -59,7 +59,7 @@
 </div>
 
 <div class="model-wrapper">
-  <div class="modal show">
+  <div class="modal hide">
       <div class="modal-close">x</div>
       <div class="modal-content">
         <input class="modal-search" placeholder = 'レシピを検索する'>
