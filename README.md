@@ -69,7 +69,7 @@ Pass: 2021
   レシピのコメント
 
 **データベース設計	ER図**
-![データベース設計	ER図](https://gyazo.com/f441cd9ab4524f5732a9c4d26a741947)
+![alt text](app/assets/images/er.png "データベース設計	ER図")
 
 
 **ローカルでの動作方法**
