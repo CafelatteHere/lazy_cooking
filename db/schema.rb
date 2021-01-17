@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_162747) do
   end
 
   create_table "calendars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "day", null: false
+    t.integer "day", null: false
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

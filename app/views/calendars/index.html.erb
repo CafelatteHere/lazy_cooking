@@ -11,7 +11,15 @@
         <div class="wday-weekday"><%= @wdays[@i]%></div>
         <div class="wday-date"><%= @day %>日</div>
       </div>
-      <div class="wday-content"></div>
+      <div class="wday-content">
+        <% if @calendars %>
+          <% @calendars.each do |calendar| %>
+            <% if calendar.day == 1 %>
+              <%= render partial: "calendar", locals: {calendar: calendar }%>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div class="wday mon">
       <div class="wday-name">
@@ -62,11 +70,14 @@
   <div class="modal hide">
       <div class="modal-close">x</div>
       <div class="modal-content">
-      <%= form_with(model: @calendar, url:calendars_path, local: true) do |form| %>
-        <input class="modal-search" placeholder = 'レシピを検索する'>
+
+      <<%= form_with(model: @calendar, url: calendars_path, local: true) do |form| %>
+       <%= form.text_field :day, placeholder: "111", class: "modal-search" %>
+        <%= form.text_field :recipe_id, placeholder: "レシピを検索する", class: "modal-search" %>
+
         <div id="search-result"></div>
         <%= form.submit 'カレンダーへ追加する', class:"cal-search-btn" %>
-        <% end %>
+  <% end %>
     </div>
       </div>
   </div>

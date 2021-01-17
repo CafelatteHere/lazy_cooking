@@ -1,0 +1,9 @@
+<div class="calendar-body">
+  <%= form_with(model: @calendar, url: calendars_path, local: true) do |form| %>
+       <%= form.text_field :day, placeholder: "111", class: "modal-search" %>
+        <%= form.text_field :recipe_id, placeholder: "レシピを検索する", class: "modal-search" %>
+
+        <div id="search-result"></div>
+        <%= form.submit 'カレンダーへ追加する', class:"cal-search-btn" %>
+  <% end %>
+</div>

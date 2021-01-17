@@ -1,4 +1,5 @@
 class CalendarsController < ApplicationController
+  # before_action :define_recipe, only: [:create]
   require "time"
   now = Time.new
   def index
@@ -8,21 +9,46 @@ class CalendarsController < ApplicationController
     @i = now.wday
     @wdays = ['日', '月', '火', '水', '木', '金', '土', '日', '月', '火', '水', '木', '金', '土']
     @wday = @wdays[@i]
+    if params[:calendar_params]
+      render action: :create
+    else
+     @calendars = Calendar.all
+    end
   end
 
-  def search
-    return nil if params[:keyword] == ""
-    recipe = Recipe.where(['name LIKE ?', "%#{params[:keyword]}%"])
-    render json:{ keyword: recipe }
-  end
+#   def search
+#     return nil if params[:keyword] == ""
+#     recipe = Recipe.where(['name LIKE ?', "%#{params[:keyword]}%"])
+#     render json:{ keyword: recipe }
+# end
+
+def new
+  @calendar = Calendar.new
+end
 
   def create
-    calendar = Calendar.create(calendar_params)
-    redirect_to "/calendars"
+    # @calendar = Calendar.new
+    @name = params[:calendar][:recipe_id]
+    @recipe = Recipe.find_by(name: @name)
+    params[:calendar][:recipe_id] = @recipe.id
+    @calendar = Calendar.new(calendar_params)
+    binding.pry
+    if @calendar.valid?
+      @calendar.save
+      redirect_to '/calendars'
+      flash[:notice] = "Saved!"
+    else
+      redirect_to '/calendars'
+      flash[:alert] = "Failed!"
+    end
   end
 
   private
   def calendar_params
-    params.require(:calendar).permit(:day).merge(recipe_id: params[:recipe_id])
+    params.require(:calendar).permit(:day, :recipe_id)
+  end
+
+  def define_recipe
+    @recipe = Recipe.find(params[:recipe_id])
   end
 end
