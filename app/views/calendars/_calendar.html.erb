@@ -1,2 +1,9 @@
 
-   <%= calendar.recipes %>
+<div class="cal-recipe">
+   <% @id = calendar.recipe_id %>
+   <% @recipe =  Recipe.find(@id) %>
+   <%= @recipe.name %>
+</div>
+
+
+

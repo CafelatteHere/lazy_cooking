@@ -13,6 +13,10 @@ class CalendarsController < ApplicationController
       render action: :create
     else
      @calendars = Calendar.all
+     @calendar = Calendar.find_by(day: @cday)
+    #  @id = @calendar.recipe_id
+
+    #  @recipe = Recipe.find(params[:id])
     end
   end
 

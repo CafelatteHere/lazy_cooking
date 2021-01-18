@@ -59,6 +59,28 @@ span {
   color: #223843;
 }
 
+.wday-content{
+  height: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.cal-recipe{
+  height: auto;
+  min-height: 90px;
+  width: 90%;
+  margin: 20px 10px;
+  padding: 5px 0px;
+  background-color: #e7d1c5;
+  color: #223843;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 3px;
+}
+
 .model-wrapper {
   width: 100vw;
   height: 100vh;
