@@ -1,5 +1,5 @@
 class CalendarsController < ApplicationController
-  # before_action :define_recipe, only: [:create]
+  before_action :define_calendar, only: [:edit, :destroy]
 
   def index
     now = Time.new
@@ -29,7 +29,6 @@ class CalendarsController < ApplicationController
     @recipe = Recipe.find_by(name: @name)
     params[:calendar][:recipe_id] = @recipe.id
     @calendar = Calendar.new(calendar_params)
-    binding.pry
     if @calendar.valid?
       @calendar.save
       redirect_to '/calendars'
@@ -40,12 +39,21 @@ class CalendarsController < ApplicationController
     end
   end
 
+  def edit
+    redirect_to '/calendars'
+  end
+
+  def destroy
+    @calendar.destroy
+    redirect_to '/calendars'
+  end
+
   private
   def calendar_params
     params.require(:calendar).permit(:day, :recipe_id)
   end
 
-  def define_recipe
-    @recipe = Recipe.find(params[:recipe_id])
+  def define_calendar
+    @calendar = Calendar.find(params[:id])
   end
 end
