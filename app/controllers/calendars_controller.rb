@@ -1,7 +1,6 @@
 class CalendarsController < ApplicationController
   # before_action :define_recipe, only: [:create]
-  require "time"
-  now = Time.new
+
   def index
     now = Time.new
     @month = now.month
@@ -9,26 +8,20 @@ class CalendarsController < ApplicationController
     @i = now.wday
     @wdays = ['日', '月', '火', '水', '木', '金', '土', '日', '月', '火', '水', '木', '金', '土']
     @wday = @wdays[@i]
-    if params[:calendar_params]
-      render action: :create
-    else
-     @calendars = Calendar.all
-     @calendar = Calendar.find_by(day: @cday)
-    #  @id = @calendar.recipe_id
-
-    #  @recipe = Recipe.find(params[:id])
-    end
+    # if params[:calendar_params]
+    @calendar = Calendar.new
+    @calendars = Calendar.all
   end
 
-#   def search
-#     return nil if params[:keyword] == ""
-#     recipe = Recipe.where(['name LIKE ?', "%#{params[:keyword]}%"])
-#     render json:{ keyword: recipe }
-# end
+  def search
+    return nil if params[:keyword] == ""
+    recipe = Recipe.where(['name LIKE ?', "%#{params[:keyword]}%"])
+    render json:{ keyword: recipe }
+  end
 
-def new
-  @calendar = Calendar.new
-end
+  def new
+    @calendar = Calendar.new
+  end
 
   def create
     # @calendar = Calendar.new

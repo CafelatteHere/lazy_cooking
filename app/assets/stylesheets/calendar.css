@@ -66,7 +66,7 @@ span {
   overflow: scroll;
 }
 
-.cal-recipe{
+.recipe-card{
   height: auto;
   min-height: 90px;
   width: 90%;
@@ -75,12 +75,24 @@ span {
   background-color: #e7d1c5;
   color: #223843;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 20px;
   border-radius: 3px;
 }
 
+.card-actions {
+  width: 80%;
+  height: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+.card-text{
+  margin: 20px 10px;
+}
 .model-wrapper {
   width: 100vw;
   height: 100vh;

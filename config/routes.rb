@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :calendars, only: [:index, :new, :create] do
+  resources :calendars do
     collection do
       get 'search'
     end
