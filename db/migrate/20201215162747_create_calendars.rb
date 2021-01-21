@@ -3,6 +3,7 @@ class CreateCalendars < ActiveRecord::Migration[6.0]
     create_table :calendars do |t|
       t.integer     :day, null: false
       t.references  :recipe, null: false, foreign_key: true
+      t.references  :user, null: false, foreign_key: true
       t.timestamps
     end
   end

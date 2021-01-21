@@ -1,4 +1,5 @@
 class CalendarsController < ApplicationController
+  before_action :authenticate_user!
   before_action :define_calendar, only: [:edit, :destroy]
 
   def index
@@ -10,7 +11,7 @@ class CalendarsController < ApplicationController
     @wday = @wdays[@i]
     # if params[:calendar_params]
     @calendar = Calendar.new
-    @calendars = Calendar.all
+    @calendars = Calendar.includes(:user)
   end
 
   def search
@@ -24,7 +25,6 @@ class CalendarsController < ApplicationController
   end
 
   def create
-    # @calendar = Calendar.new
     @name = params[:calendar][:recipe_id]
     @recipe = Recipe.find_by(name: @name)
     params[:calendar][:recipe_id] = @recipe.id
@@ -39,10 +39,6 @@ class CalendarsController < ApplicationController
     end
   end
 
-  def edit
-    redirect_to '/calendars'
-  end
-
   def destroy
     @calendar.destroy
     redirect_to '/calendars'
@@ -50,7 +46,7 @@ class CalendarsController < ApplicationController
 
   private
   def calendar_params
-    params.require(:calendar).permit(:day, :recipe_id)
+    params.require(:calendar).permit(:day, :recipe_id).merge(user_id: current_user.id)
   end
 
   def define_calendar

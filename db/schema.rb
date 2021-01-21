@@ -36,9 +36,11 @@ ActiveRecord::Schema.define(version: 2020_12_15_162747) do
   create_table "calendars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "day", null: false
     t.bigint "recipe_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_calendars_on_recipe_id"
+    t.index ["user_id"], name: "index_calendars_on_user_id"
   end
 
   create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -92,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_162747) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "calendars", "recipes"
+  add_foreign_key "calendars", "users"
   add_foreign_key "recipe_ingredient_relations", "ingredients"
   add_foreign_key "recipe_ingredient_relations", "recipes"
   add_foreign_key "recipes", "users"
