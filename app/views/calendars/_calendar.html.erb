@@ -1,8 +1,5 @@
 <div class="recipe-card">
       <div class="card-actions">
-      <div class="edit">
-        <%= link_to (image_tag 'pencil.png', class:"pencil hide"), edit_calendar_path(calendar.id), method: :get %>
-      </div>
       <div class="delete">
         <%= link_to (image_tag 'trash.png' , class:"trash hide"), calendar_path(calendar.id), method: :delete %>
       </div>

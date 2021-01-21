@@ -1,6 +1,6 @@
 class CalendarsController < ApplicationController
   before_action :authenticate_user!
-  before_action :define_calendar, only: [:edit, :destroy]
+  before_action :define_calendar, only: [:destroy]
 
   def index
     now = Time.new
@@ -41,6 +41,11 @@ class CalendarsController < ApplicationController
 
   def destroy
     @calendar.destroy
+    redirect_to '/calendars'
+  end
+
+  def destroy_all
+    Calendar.destroy_all
     redirect_to '/calendars'
   end
 

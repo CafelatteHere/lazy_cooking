@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :calendars do
     collection do
       get 'search'
+      delete 'destroy_all'
     end
   end
 end
