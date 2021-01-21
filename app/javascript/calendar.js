@@ -9,6 +9,11 @@ function showForm () {
   xBtn.addEventListener('click', ()=>{
     openCloseForm();
   });
+
+  const newBtn = document.querySelector('.new-card');
+  newBtn.addEventListener('click', function(){
+    openCloseForm();
+  });
 };
 
 function openCloseForm () {

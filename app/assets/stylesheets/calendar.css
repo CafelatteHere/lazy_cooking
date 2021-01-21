@@ -39,15 +39,17 @@ span {
   border-left: solid 0.5px #D0D6DC;
 }
 
-.destroy-all{
+.new-card, .destroy-all{
   height: 60px;
-  width: 170px;
+  width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
   background-color: #93b8c8;
   border-radius: 3px;
+  margin-right: 20px;
+  color: #223843;
 }
 
 .wday-name {

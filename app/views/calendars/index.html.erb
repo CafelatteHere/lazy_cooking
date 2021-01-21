@@ -4,6 +4,9 @@
     <div class="week-field">
       <h2 class="cal-top-el">今週：<%= @month %>月<%= @day %>日ー<%= @month %>月<%= @day + 6 %>日</h2>
     </div>
+    <div class="new-card">
+      レシピカードを作る
+    </div>
     <div class="destroy-all">
       <%= link_to "全てをクリアする", destroy_all_calendars_path, method: :delete %>
     </div>
