@@ -1,10 +1,12 @@
 class Calendar < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :day
   # attr_accessor :recipe_id, :user_id
 
-  has_one   :recipe
+  belongs_to :recipe
   belongs_to :user
 
-  validates :day,    presence: true
+  validates :day_id, presence: true
   # validates :recipe_id, presence: true
   # validates :recipe_id, presence: true
 

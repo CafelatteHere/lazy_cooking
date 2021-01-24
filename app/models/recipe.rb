@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
     belongs_to :time_count
     has_one_attached :image
     belongs_to :user
-    belongs_to :calendar
+    has_one :calendar
   # with_options presence: true do
   #   validates :name, length:{maximum: 35}
   #   validates :portion
