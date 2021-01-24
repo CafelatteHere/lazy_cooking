@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'shoppinglists/index'
   # get 'calendars/index'
   devise_for :users
   get 'recipes/index'
