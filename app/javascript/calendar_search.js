@@ -1,9 +1,10 @@
 function searchRecipe () {
-  const searchInput = document.querySelector('.modal-search');
+  const searchInput = document.querySelector('#calendar_recipe_id');
   const submitBtn = document.querySelector('.cal-search-btn');
 
   searchInput.addEventListener('keyup', ()=>{
-    const keyword = document.querySelector('.modal-search').value;
+    const keyword = document.querySelector('#calendar_recipe_id').value;
+    console.log(keyword);
     const XHR = new XMLHttpRequest();
     XHR.open("GET", `calendars/search/?keyword=${keyword}`, true);
     XHR.responseType = "json";
@@ -23,7 +24,7 @@ function searchRecipe () {
 
           const clickElement = document.getElementById(recipe.id);
           clickElement.addEventListener('click', ()=> {
-            document.querySelector('.modal-search').value = clickElement.textContent;
+            document.querySelector('#calendar_recipe_id').value = clickElement.textContent;
             searchResult.innerHTML = "";
           });
         });

@@ -118,7 +118,7 @@ span {
 
 .modal {
   width: 600px;
-  height: 300px;
+  height: auto;
   position: fixed;
   z-index: 4;
   top: 250px;
@@ -157,6 +157,15 @@ span {
   border-radius: 3px;
   padding-left: 20px;
   font-size: 18px;
+}
+
+.result-child{
+  height: 30px;
+  width: 500px;
+  position: relative;
+  z-index: 4;
+  background-color: #fff;
+  margin-left: 5px;
 }
 
 .cal-search-btn {
