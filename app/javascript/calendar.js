@@ -26,15 +26,11 @@ function showBtn () {
 
   recipeCards.forEach((recipeCard) => {
     recipeCard.addEventListener('mouseover', function(){
-      const editBtn = recipeCard.querySelector('.pencil');
-      editBtn.classList.remove('hide');
       const deleteBtn = recipeCard.querySelector('.trash');
       deleteBtn.classList.remove('hide');
     });
 
     recipeCard.addEventListener('mouseleave', function(){
-      const editBtn = recipeCard.querySelector('.pencil');
-      editBtn.classList.add('hide');
       const deleteBtn = recipeCard.querySelector('.trash');
       deleteBtn.classList.add('hide');
     });

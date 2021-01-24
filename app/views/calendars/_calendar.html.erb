@@ -1,9 +1,9 @@
 <div class="recipe-card">
-      <div class="card-actions">
       <div class="delete">
-        <%= link_to (image_tag 'trash.png' , class:"trash hide"), calendar_path(calendar.id), method: :delete %>
+        <div class="inner">
+          <%= link_to (image_tag 'trash.png' , class:"trash hide"), calendar_path(calendar.id), method: :delete %>
+        </div>
       </div>
-    </div>
 
    <div class="card-text">
       <% @id = calendar.recipe_id %>
