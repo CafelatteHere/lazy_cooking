@@ -8,8 +8,7 @@
     <%# <div class="calendar-btn">カレンダー
     </div> %>
     <div class="list-btn">
-      <p>ショッピング</p>
-      <p>リスト</p>
+      <%= link_to 'ショッピングリスト', shoppinglists_index_path  %>
     </div>
   </div>
   <div class="upper-content">
@@ -19,11 +18,14 @@
       <% end %>
 
       <div class="calendar bar-element">
+        <%= link_to calendars_path, class: "bar-element" do %>
         カレンダー
+        <% end %>
       </div>
       <div class="shopping-list bar-element">
-        <p>ショッピング</p>
-        <p>リスト</p>
+        <%= link_to shoppinglists_index_path, class: "bar-element" do %>
+        ショッピング・リスト
+        <% end %>
       </div>
     </div>
     <div class="tag-bar">
