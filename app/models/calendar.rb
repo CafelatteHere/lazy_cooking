@@ -5,6 +5,7 @@ class Calendar < ApplicationRecord
 
   belongs_to :recipe
   belongs_to :user
+  has_one :item
 
   validates :day_id, presence: true
   # validates :recipe_id, presence: true

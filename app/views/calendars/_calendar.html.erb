@@ -6,8 +6,8 @@
       </div>
 
    <div class="card-text">
-      <% @id = calendar.recipe_id %>
-      <% @recipe =  Recipe.find(@id) %>
+      <%# <% id = calendar.recipe_id %>
+      <% @recipe =  Recipe.find(calendar.recipe_id) %>
       <%= @recipe.name %>
    </div>
 </div>
