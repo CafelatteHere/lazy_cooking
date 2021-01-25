@@ -1,0 +1,10 @@
+<div class="list-body">
+  <div class="list-header">
+    <p>Shopping List</p>
+  </div>
+  <div class="items-list">
+    <% @items.each do |item| %>
+      <%= render partial: "item", locals: { item: item } %>
+    <% end %>
+  </div>
+</div>
