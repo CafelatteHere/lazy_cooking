@@ -3,22 +3,52 @@
     <p>Shopping List</p>
   </div>
   <div class="items-list">
-    <% @calendars.each do |calendar| %>
-      <% calendar.recipe.recipe_ingredient_relations.each do |rir| %>
-      <% @measurement = Measurement.find(rir.measurement_id) %>
+    <% if @calendars.length != 0 %>
+      <% @calendars.each do |calendar| %>
+        <% calendar.recipe.recipe_ingredient_relations.each do |rir| %>
+        <% @measurement = Measurement.find(rir.measurement_id) %>
 
-      <div class="item">
-        <div class="check">
-          <%= check_box_tag 'bought', 'no', false, class: "box" %>
+        <div class="item">
+          <div class="check">
+            <%= check_box_tag 'bought', 'no', false, class: "box" %>
+          </div>
+          <div class="item-name"><%= rir.ingredient.i_name %></div>
+          <div class="how-much"><%= rir.quantity %></div>
+          <div class="item-quantity"><%= @measurement.name %></div>
         </div>
-        <div class="item-name"><%= rir.ingredient.i_name %></div>
-        <div class="how-much"><%= rir.quantity %></div>
-        <div class="item-quantity"><%= @measurement.name %></div>
-      </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <div class="item">
+        カレンダーでレシピをカードを作ると、
+      </div>
+      <div class="item">
+       ここにショッピングリストが自動的に作成されます〜
+      </div>
+    <%end%>
+    <div class="others-list">
+      <div class="itemsline"></div>
+      <% if @items.length != 0 %>
+      <% @items.each do |item| %>
+        <div class="item">
+          <div class="check">
+            <%= check_box_tag 'bought', 'no', false, class: "box" %>
+          </div>
+          <div class="item-name"><%= item.name %></div>
+          <div class="how-much"><%= item.quantity %></div>
+          <div class="item-quantity"><%= x %></div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="item">
+        ここでレシピ以外に必要な買い物をリストに追加できます〜
+      </div>
     <% end %>
-    <% @items.each do |item| %>
-      <%= render partial: "item", locals: { item: item } %>
+    <% form_with model: @item, local: true do |form| %>
+      <%= render 'shared/error_messages', model: @item %>
+      <%= form.text_area :name, class: "item-name", placeholder: "買い物名", maxlength: "40" %>
+      <%= form.text_area :quantity, class: "item-name", placeholder: "買い物口数、任意", maxlength: "15" %>
     <% end %>
+    </div>
   </div>
 </div>

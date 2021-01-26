@@ -70,3 +70,11 @@
   min-width: 25%;
   height: 100%;
 }
+
+.itemsline{
+  border-bottom: solid 1.5px #D0D6DC;
+  margin-bottom: 7px;
+}
+.others-list {
+  margin-top: 70px;
+}
