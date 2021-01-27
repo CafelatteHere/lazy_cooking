@@ -3,7 +3,7 @@
     <p>Shopping List</p>
   </div>
   <div class="items-list">
-    <% if @calendars %>
+    <% if @calendars && @calendars.length != 0 %>
       <% @calendars.each do |calendar| %>
         <% calendar.recipe.recipe_ingredient_relations.each do |rir| %>
         <% @measurement = Measurement.find(rir.measurement_id) %>
@@ -27,8 +27,13 @@
       </div>
     <% end %>
     <div class="others-list">
-      <div class="itemsline"></div>
-      <% if @items %>
+      <% if@items &&  @items.length != 0 %>
+        <div class="destroy-wrapper">
+          <div class="destroy-btn">
+          <%= link_to '全てをクリア', destroy_all_items_path, method: :delete %>
+         </div>
+        </div>
+        <div class="itemsline"></div>
         <% @items.each do |item| %>
           <div class="item">
             <div class="check">
@@ -44,6 +49,7 @@
           </div>
         <% end %>
       <% else %>
+      <div class="itemsline"></div>
       <div class="item">
         ここでレシピ以外に必要な買い物をリストに追加できます〜
       </div>

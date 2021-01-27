@@ -16,5 +16,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :create, :destroy, :destroy_all]
+  resources :items, only: [:index, :create, :destroy] do
+    collection do
+      delete 'destroy_all'
+    end
+  end
 end

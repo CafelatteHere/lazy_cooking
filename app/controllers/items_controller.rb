@@ -19,6 +19,11 @@ class ItemsController < ApplicationController
     redirect_to '/items'
   end
 
+  def destroy_all
+    Item.destroy_all
+    redirect_to '/items'
+  end
+
   private
 
   def item_params

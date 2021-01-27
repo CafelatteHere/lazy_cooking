@@ -79,7 +79,7 @@
   margin-top: 70px;
 }
 
-.other-name, .other-quantity, #item-submit{
+.other-name, .other-quantity, #item-submit, .destroy-btn{
   vertical-align: top;
   display: inline-block;
   height: 45px;
@@ -104,4 +104,17 @@
 #item-submit {
   border: none;
   background-color: #e7d1c5;
+}
+
+.destroy-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.destroy-btn {
+  right: 0px;
+  margin-bottom: 5px;
+  background-color: #D0D6DC;
+  font-size: 18px;
 }
