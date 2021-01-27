@@ -36,7 +36,11 @@
             </div>
             <div class="item-name"><%= item.name %></div>
             <div class="how-much"><%= item.quantity %></div>
-
+            <div class="delete">
+              <div class="inner">
+                <%= link_to (image_tag 'trash.png' , class:"trash"), item_path(item.id), method: :delete %>
+              </div>
+            </div>
           </div>
         <% end %>
       <% else %>
