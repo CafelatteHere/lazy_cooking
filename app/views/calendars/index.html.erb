@@ -126,6 +126,7 @@
       <div class="modal-content">
 
       <%= form_with(model: @calendar, url: calendars_path, local: true) do |form| %>
+        <%= render 'shared/error_messages', model: @calendar %>
         <%= form.collection_select(:day_id, Day.all, :id, :name, {}, {class:"modal-search"}) %>
         <%= form.text_field :recipe_id, placeholder: "レシピを検索する", class: "modal-search" %>
         <div id="search-result"></div>

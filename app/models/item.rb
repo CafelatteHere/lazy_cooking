@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  belongs_to :calendar
 
-  validates :is_checked, inclusion: [true, false]
-  validates :calendar, presence: true
+  # validates :is_checked, inclusion: [true, false]
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :quantity, length: {maximum: 15 }
 end

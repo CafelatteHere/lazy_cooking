@@ -9,7 +9,7 @@
 }
 
 .list-header {
-  width: 80vw;
+  width: 70vw;
   height: 100px;
   background-color: #e7d1c5;
   color: #223843;
@@ -17,12 +17,12 @@
   flex-direction: column;
   justify-content: center;
   padding-left: 70px;
-  font-size: 26px;
+  font-size: 28px;
 }
 
 .items-list{
   height: calc(100% - 60px);
-  width: 80vw;
+  width: 70vw;
   padding: 15px 70px;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@
   display: flex;
   border-bottom: dashed 0.5px #D0D6DC;
   color: #223843;
-  font-size: 22px;
+  font-size: 20px;
   font-style: italic;
   padding: 15px 0px;
 }
@@ -77,4 +77,31 @@
 }
 .others-list {
   margin-top: 70px;
+}
+
+.other-name, .other-quantity, #item-submit{
+  vertical-align: top;
+  display: inline-block;
+  height: 45px;
+  margin-top: 25px;
+  padding: 7px 10px;
+  border: solid 0.5px #C4CCD4;
+  border-radius: 3px;
+  resize: none;
+  font-size: 20px;
+}
+
+.other-name {
+  width: 60%;
+  margin-right: 5px;
+}
+
+.other-quantity{
+  width: 30%;
+  margin-right: 5px;
+}
+
+#item-submit {
+  border: none;
+  background-color: #e7d1c5;
 }

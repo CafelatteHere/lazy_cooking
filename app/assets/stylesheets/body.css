@@ -234,3 +234,16 @@ a {
   align-items: center;
   justify-content: center;
 }
+
+.errors {
+  top: 200px;
+  left: 200px;
+  width: 100px;
+  background-color: #fff;
+}
+.error-message {
+  top: 200px;
+  width: 100px;
+  height: 150px;
+  color: red;
+}
