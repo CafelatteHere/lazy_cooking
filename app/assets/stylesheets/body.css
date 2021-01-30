@@ -255,8 +255,11 @@ a {
 }
 
 .settings-menu {
-  top: 70px;
+  top: 60px;
   position: absolute;
+  z-index: 3;
+  border-radius: 3px;
+  box-shadow: 2px 3px 4px 0px #D0D6DC;
 }
 
 .settings-menu-el{
