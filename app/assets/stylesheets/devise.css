@@ -1,17 +1,19 @@
-.login-body{
+.login-body, .account-settings-body{
   width: 100vw;
   height: calc(100vh - 130px);
   background-color: #F9F4F1;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: scroll;
 }
-.login-form{
+.login-form, .account-settings-form{
   width: 700px;
   height: 500px;
   background-color: #fff;
   box-shadow: 0px 4px 5px 0px #D0D6DC;
   padding: 40px;
+  overflow: scroll;
 }
 
 .login{
@@ -19,20 +21,21 @@
   color: #D77A61;
 }
 
-.login-field{
+.login-field, .settings-field{
   padding: 20px 0px 0px 0px;
 }
 
-.login-el{
+.login-el, .settings-el{
   font-size: 20px;
   text-decoration: none;
   color: #223843;
 }
 
-.login-input{
+.login-input, .settings-input {
   width:80%;
   height: 35px;
   margin-top: 5px;
+  padding-left: 10px;
   border: 1px solid #d0d6dd;
   border-radius: 3px;
 }
@@ -45,7 +48,7 @@
   border-radius: 3px;
 }
 
-.login-submit{
+.login-submit, .setting-submit{
   width: 140px;
   height: 50px;
   margin-top: 10px;
@@ -104,10 +107,81 @@
   align-items: center;
 }
 
-.signup-btn{
+.signup-btn, .upd{
   background-color: #D8B4A0;
 }
 
 .small-text{
   font-size: 14px;
+}
+
+
+.account-settings-form{
+  margin-top: 930px;
+  /* position: absolute; */
+  width: 1000px;
+  height: auto;
+  min-height: 1410px;
+  margin-bottom: 20px;
+}
+
+.settings-name{
+  color: #D77A61;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.settings-subname {
+  color: #D77A61;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.settings-input{
+  width: 400px;
+}
+
+.passwords{
+  display: flex;
+  width: 92%;
+  justify-content: space-between;
+}
+
+.settings-middle {
+  display: flex;
+}
+
+.settings-left, .settings-right {
+  width: 50%;
+}
+
+.settings-img-box{
+  height: 213px;
+  background-color: #C4CCD4;
+  border-radius: 5%;
+  width: 80%;
+  position: relative;
+  margin-top: 7px;
+}
+
+.about_me{
+  height: 150px;
+  width: 865px;
+  padding: 10px
+}
+
+.cncl, .upd {
+  margin-bottom: 20px;
+}
+
+.settings-bottom{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.settings-line {
+  width: 90%;
+  height: 50px;
+  border-top: 1px solid #EFF1F3;
+  margin-top: 20px;
 }
