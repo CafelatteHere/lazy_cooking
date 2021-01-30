@@ -247,3 +247,26 @@ a {
   height: 150px;
   color: red;
 }
+
+.settings, .settings-menu, .settings-title {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-menu {
+  top: 70px;
+  position: absolute;
+}
+
+.settings-menu-el{
+  width: 130px;
+  height: 50px;
+  background-color: #fff;
+  font-size: 18px;
+  border-bottom: solid 0.5px  #D0D6DC;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

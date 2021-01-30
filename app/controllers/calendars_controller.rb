@@ -20,9 +20,10 @@ class CalendarsController < ApplicationController
     render json:{ keyword: recipe }
   end
 
-  def new
-    @calendar = Calendar.new
-  end
+  # def new
+  #   @calendar = Calendar.new
+  #   recipe = @calendar.recipe
+  # end
 
   def create
     @name = params[:calendar][:recipe_id]
@@ -32,7 +33,7 @@ class CalendarsController < ApplicationController
     if @calendar.valid?
       @calendar.save
       redirect_to '/calendars'
-      flash[:notice] = "Saved!"
+      # flash[:notice] = "Saved!"
     else
       redirect_to '/calendars'
       flash[:alert] = "Failed!"
@@ -51,7 +52,7 @@ class CalendarsController < ApplicationController
 
   private
   def calendar_params
-    params.require(:calendar).permit(:day, :recipe_id).merge(user_id: current_user.id)
+    params.require(:calendar).permit(:day_id).merge(user_id: current_user.id, recipe_id: @recipe.id)
   end
 
   def define_calendar

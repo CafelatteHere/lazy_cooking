@@ -33,15 +33,17 @@
           <%= link_to 'ログイン', user_session_path, method: :get, class:"menu-element" %>
         <% end %>
         <% if user_signed_in? %>
-        <h3 class="menu-element">設定</h3>
-          <ul class="settings">
-            <li>
+        <div class="menu-element settings">
+          <div class="settings-title">設定</div>
+          <ul class="settings-menu hide">
+            <li class="settings-menu-el">
               <%= link_to 'プロフィル編集', edit_user_registration_path(current_user.id), method: :get %>
             </li>
-            <li>
+            <li class="settings-menu-el">
               <%= link_to 'ログアウト', destroy_user_session_path(current_user.id), method: :delete %>
             </li>
           </ul>
+        </div>
         <% end %>
       </div>
     </header>
