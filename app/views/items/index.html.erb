@@ -1,6 +1,6 @@
 <div class="list-body">
   <div class="list-header">
-    <p>Shopping List</p>
+    <p>ショッピングリスト</p>
   </div>
   <div class="items-list">
     <% if @calendars && @calendars.length != 0 %>
@@ -20,10 +20,10 @@
       <% end %>
     <% else %>
       <div class="item">
-        カレンダーでレシピをカードを作ると、
+        カレンダー上でレシピカードを作ってみましょう。
       </div>
       <div class="item">
-       ここにショッピングリストが自動的に作成されます〜
+       自動的にショッピングリストがこの欄に追加されます。
       </div>
     <% end %>
     <div class="others-list">
@@ -51,15 +51,15 @@
       <% else %>
       <div class="itemsline"></div>
       <div class="item">
-        ここでレシピ以外に必要な買い物をリストに追加できます〜
+        ここではレシピ以外の買い物アイテムを追加できます。
       </div>
       <% end %>
     </div>
     <div class="items-form">
       <%= form_with(model: @item, url: "/items", method: :post, local: true) do |form| %>
         <%= render 'shared/error_messages', model: @item %>
-        <%= form.text_area :name, class: "other-name", placeholder: "買い物名", maxlength: "40" %>
-        <%= form.text_area :quantity, class: "other-quantity", placeholder: "買い物口数、任意", maxlength: "15" %>
+        <%= form.text_area :name, class: "other-name", placeholder: "買い物アイテム", maxlength: "40" %>
+        <%= form.text_area :quantity, class: "other-quantity", placeholder: "個数、任意", maxlength: "15" %>
         <%= form.submit '追加', id: "item-submit" %>
       <% end %>
     </div>

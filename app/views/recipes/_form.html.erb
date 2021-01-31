@@ -1,7 +1,7 @@
 <body class="form-body">
   <div class="form">
     <p class="action-name">レシピの情報を入力</p>
-    <div class="explanation-top"><span>オレンジ色：必須</span>、グレー色：任意</div>
+    <div class="explanation-top"><span>オレンジの項目：必須</span>、グレーの項目：任意</div>
     <hr>
 
     <%# <div class="recipe-name field"> %>
@@ -13,7 +13,7 @@
     <div class="middle-input">
       <div class="portion-time-calories">
         <div class="portion ">
-          <div class="explanation"">何人分もしくはポーションの数</div>
+          <div class="explanation"">人数もしくは分量</div>
           <div class="portion-count">
             <p class="after-input after-input-btn-required minus">-</p>
             <%= form.text_field :portions, placeholder: "例）２", class: "form-el portion-input required" %>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="time field">
-          <div class="explanation">料理にかかる時間</div>
+          <div class="explanation">所要時間</div>
           <div class="time-box ">
             <%= form.collection_select(:time_count_id, TimeCount.all, :id, :name, {}, {class:"form-el time-input required"}) %>
               <%# <%= form.select_hour (datetime, options= {prompt: "例）1", start_hour: 0, end_hour: 5})public %>
@@ -49,7 +49,7 @@
 
 <%# new ingredient %>
     <div class="ingredients-wrapper">
-      <div class="explanation">材料を入力してください。個数を選べば、自動的に次の材料入力スペースが現れます。</div>
+      <div class="explanation">材料名と量を入力してください。次の材料入力ボックスが現れます。</div>
 
       <div class="ingredients-box">
         <%# <%= form.fields_for :ingredients do |f| %>
@@ -77,17 +77,17 @@
 <%# new ingredient %>
 
     <div class="recipe-content field">
-      <%= form.text_area :content, placeholder: "作り方を入れてください。1500文字までです。", maxlength:"1500", class: "recipe-input required" %>
+      <%= form.text_area :content, placeholder: "料理手順を入れてください。1500文字までです。", maxlength:"1500", class: "recipe-input required" %>
     </div>
 
     <div class="about_recipe field">
       <div class="explanation">レシピのヒント</div>
-      <%= form.text_field :tips , placeholder: "例）〇〇材料がなければ、〇〇で交換できます。20分長く煮込めば、さらに美味しい;  200文字まで", maxlength: "200", class: "about-input form-el" %>
+      <%= form.text_field :tips , placeholder: "例）材料の〇〇がなくれば代わりに〇〇が使えます。200文字まで。", maxlength: "200", class: "about-input form-el" %>
     </div>
   <%# buttons %>
     <div class="is_public field">
       <%= form.check_box :is_public, class:"checkbox form-el" %>
-      <div class="column-name">レシピを公開にする？</div>
+      <div class="column-name">レシピを公開する？</div>
     </div>
 
     <div class="submit">

@@ -1,6 +1,6 @@
 <div class="login-body">
   <div class="login-form">
-    <h2 class="login">Log in</h2>
+    <h2 class="login">ログイン</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="login-field">
@@ -9,14 +9,14 @@
       </div>
 
       <div class="login-field">
-        <%= f.label :password, class:"login-el" %><br />
+        <%= f.label :パスワード, class:"login-el" %><br />
         <%= f.password_field :password, autocomplete: "current-password", class:"login-input"%>
       </div>
 
       <% if devise_mapping.rememberable? %>
         <div class="login-field">
           <%= f.check_box :remember_me , class:"login-check" %>
-          <%= f.label :remember_me, class:"login-el" %>
+          <%= f.label :パスワードをお忘れですか？, class:"login-el" %>
         </div>
       <% end %>
 

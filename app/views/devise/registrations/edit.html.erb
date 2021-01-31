@@ -19,16 +19,16 @@
 
       <div class="passwords">
         <div class="settings-field">
-        <%= f.label :password, class:"settings-el" %> <i> (leave blank if you don't want to change it)</i><br />
+        <%= f.label :パスワード, class:"settings-el" %> <i> (既存パスワード使用の場合、変更不要)</i><br />
         <%= f.password_field :password, autocomplete: "new-password", class:"settings-input" %>
         <% if @minimum_password_length %>
           <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
+          <em><%= @minimum_password_length %>文字以上</em>
         <% end %>
       </div>
 
       <div class="settings-field">
-        <%= f.label :password_confirmation, class:"settings-el" %><br />
+        <%= f.label :パスワードの確認, class:"settings-el" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"settings-input" %>
       </div>
       </div>
@@ -80,7 +80,7 @@
     </div>
 
       <div class="settings-field">
-        <%= f.label :current_password, class:"settings-el" %> <i> (we need your current password to confirm your changes)</i><br />
+        <%= f.label :更新情報の保存（要パスワード入力）, class:"settings-el" %><br />
         <%= f.password_field :current_password, autocomplete: "current-password", class:"settings-input" %>
       </div>
 
@@ -94,7 +94,7 @@
     <div class="settings-bottom">
       <div class="cancell-account">
         <h3 class="settings-el">アカウント削除</h3>
-        <p><%= button_to "削除", registration_path(resource_name), class:"setting-submit cncl", data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <p><%= button_to "削除", registration_path(resource_name), class:"setting-submit cncl", data: { confirm: "アカウント削除してよろしいですか。" }, method: :delete %></p>
       </div>
 
       <div class="back-to-top">

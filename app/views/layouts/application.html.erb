@@ -16,7 +16,7 @@
         <%= link_to "Lazy Cooking", root_path,  class: "logo" %>
       </div>
       <form action="#" class="search-form">
-        <input type="text" class="input-box" placeholder="レシピ名か材料で検索">
+        <input type="text" class="input-box" placeholder="レシピ名または材料で検索">
         <button class="search-button">検索</button>
       </form>
       <div class="menu">
@@ -37,7 +37,7 @@
           <div class="settings-title">設定</div>
           <ul class="settings-menu hide">
             <li class="settings-menu-el">
-              <%= link_to 'プロフィル編集', edit_user_registration_path(current_user.id), method: :get %>
+              <%= link_to 'プロフィール編集', edit_user_registration_path(current_user.id), method: :get %>
             </li>
             <li class="settings-menu-el">
               <%= link_to 'ログアウト', destroy_user_session_path(current_user.id), method: :delete %>
@@ -56,7 +56,7 @@
       <div class="footer-menu">
         <h3 class="menu-element">Lazy Cookingについて</h3>
         <h3 class="menu-element">アプリのダウンロードはAppstoreまたGoogle Play</h3>
-        <h3 class="menu-element">アプリについてのアイディアを教えて！</h3>
+        <h3 class="menu-element">アプリについてのご意見はこちら</h3>
       </div>
       <h3 class="copyright">Copyright(C) cafelatte.here 2020</h3>
   </footer>

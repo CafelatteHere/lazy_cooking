@@ -41,7 +41,7 @@ span {
 
 .new-card, .destroy-all{
   height: 60px;
-  width: 180px;
+  width: 210px;
   display: flex;
   justify-content: center;
   align-items: center;
