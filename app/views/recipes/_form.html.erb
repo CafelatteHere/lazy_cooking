@@ -55,7 +55,7 @@
         <%# <%= form.fields_for :ingredients do |f| %>
         <div class="form-ingredients">
             <%= form.text_field :i_name, placeholder:"例）レタス", class: "form-el ingredient-input required" %>
-            <%= form.text_field :i_name, placeholder:"例）レタス", class: "form-el ingredient-input" %>
+            <%# <%= form.text_field :i_name, placeholder:"例）レタス", class: "form-el ingredient-input" %>
         </div>
         <%# <% end %>
         <%# <%= form.fields_for :recipe_ingredient_relations do |f| %>
@@ -65,11 +65,11 @@
             <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input-required"}) %>
             <p class="after-input after-input-btn-required">+</p>
           </div>
-           <div class="quantity-set">
+           <%# <div class="quantity-set">
             <%= form.text_field :quantity, placeholder: "例）100", class: "form-el quantity-input" %>
-            <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input"}) %>
-            <p class="after-input after-input-btn">+</p>
-           </div>
+            <%# <%= form.collection_select(:measurement_id, Measurement.all, :id, :name, {}, {class:"after-input"}) %>
+            <%# <p class="after-input after-input-btn">+</p>
+           </div>   %>
         </div>
         <%# <% end %>
       </div>

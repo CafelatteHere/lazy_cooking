@@ -7,7 +7,7 @@
       <div class="edit">
         <%=link_to (image_tag 'pencil.png', class:"pencil hide"), edit_recipe_path(recipe.id), method: :get %>
       </div>
-      <div class="recipe-name"><%= link_to recipe.name, recipe_path(recipe.id) %></div>
+      <div class="index-recipe-name"><%= link_to recipe.name, recipe_path(recipe.id) %></div>
       <div class="delete">
         <%= link_to (image_tag 'trash.png', class:"trash hide"), recipe_path(recipe.id), method: :delete %>
       </div>
@@ -20,7 +20,7 @@
 
   <div class="about-recipe">
     <div class="recipe_portion about-el"><%= recipe.portions %>人分</div>
-    <div class="time about-el"><%= recipe.time_count_id%>分</div>
+    <div class="time about-el"><%= recipe.time_count.name%>分</div>
     <div class="recipe-calories about-el"><%= recipe.calories %>kcal</div>
   </div>
   <div class="recipe-content">
@@ -32,7 +32,7 @@
         <% end %>
       </ul>
     </div>
-    <div class="tags">
+    <%# <div class="tags">
       <a href="" class="tag">drink</a>
       <a href="" class="tag">salad</a>
     </div>
@@ -42,7 +42,7 @@
     </div>
     <div class="to-favourite">
       added!
-    </div>
+    </div> %>
   </div>
 
 </div>
