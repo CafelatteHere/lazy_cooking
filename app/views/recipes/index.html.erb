@@ -11,27 +11,27 @@
       <%= link_to "ショッピング<br/>リスト".html_safe, items_index_path  %>
     </div>
   </div>
-  <div class="upper-content">
+  <%# <div class="upper-content">
     <div class="menu-bar">
-      <%= link_to new_recipe_path, class: 'add-recipe bar-element' do %>
-        + レシピ投稿
+      <%= link_to new_recipe_path, class: 'bar-element' do %>
+        <%# + レシピ投稿
       <% end %>
 
-      <div class="calendar bar-element">
+      <%# <div class="menu-bar">
         <%= link_to calendars_path, class: "bar-element" do %>
-        カレンダー
+        <%# カレンダー
         <% end %>
-      </div>
-      <div class="shopping-list bar-element">
+      <%# </div>
+      <div class="menu-bar">
         <%= link_to items_index_path, class: "bar-element" do %>
-        ショッピング・リスト
+        <%# ショッピング・リスト
         <% end %>
-      </div>
-    </div>
+      <%# </div>
+    </div> %>
     <%# <div class="tag-bar">
       <%= render 'tags' %>
     <%# </div>  %>
-  </div>
+  <%# </div> %>
     <%# <div class="banner">
      News
     </div> %>
