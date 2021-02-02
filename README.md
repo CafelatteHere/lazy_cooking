@@ -28,7 +28,8 @@ Pass: 2021
 **利用方法**
   * ユーザーログイン：ヘッダー右上のユーザーログインボタンを押します。
   
-    ![Alt Text](https://drive.google.com/file/d/1PCmSx98hAzduM_HtW-fkd0Z3D3kvI_CW/view?usp=sharing)
+     ![ユーザーログインgif](img/login.gif)
+     
   * レシピ投稿：トップページのヘッダー直後、またはページの右真ん中にある「レシピ投稿」ボタンを押します。
   
     ![Alt Text](https://drive.google.com/file/d/1an--xzVvgDVsAC5qW069T-NG91zrOMcM/view?usp=sharing)
