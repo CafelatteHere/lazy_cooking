@@ -136,10 +136,18 @@ a {
   height: 25px;
 }
 
-.recipe-image {
-  width: 100%;
+.recipe-image-box {
+  background-color: #e7eaee;
   height: 250px;
-  background-color: #D0D6DC;
+  margin: 8px 0px 8px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.recipe-image {
+  height: 250px;
+  width: auto;
+  max-width: 100%;
   margin: 8px 0px 8px 0px;
 }
 

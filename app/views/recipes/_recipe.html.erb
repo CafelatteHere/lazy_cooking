@@ -17,7 +17,9 @@
       <% end %>
     </div>
      <%= link_to recipe_path(recipe.id), method: :get  do %>
-    <%= image_tag recipe.image, class: 'recipe-image' if recipe.image.attached? %>
+    <div class="recipe-image-box">
+      <%= image_tag recipe.image, class: 'recipe-image' if recipe.image.attached? %>
+    </div>
     <% end %>
   </div>
 
