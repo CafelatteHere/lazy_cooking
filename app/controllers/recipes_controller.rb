@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :redirect, only: %i[edit destroy]
+  # before_action :redirect, only: %i[edit destroy]
 
 
   def index
@@ -62,7 +62,7 @@ class RecipesController < ApplicationController
     # params.require(:recipes_ingredient).permit(:name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, ingredients_attributes: [:i_name], recipe_ingredient_relations_attributes: [:quantity, :measurement_id] ).merge(user_id: current_user.id)
   end
 
-  def redirect
-    redirect_to root_path unless @item.user == current_user
-  end
+  # def redirect
+  #   redirect_to root_path unless @recipe.user == current_user
+  # end
 end
