@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
 
 
   def index
-    @recipes = Recipe.includes(:user)
+    @recipes = Recipe.includes(:user).order(id: 'DESC')
   end
 
   def new
