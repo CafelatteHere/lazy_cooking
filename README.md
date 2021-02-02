@@ -27,10 +27,18 @@ Pass: 2021
 
 **利用方法**
   * ユーザーログイン：ヘッダー右上のユーザーログインボタンを押します。
+  
+    ![Alt Text](https://drive.google.com/file/d/1PCmSx98hAzduM_HtW-fkd0Z3D3kvI_CW/view?usp=sharing)
   * レシピ投稿：トップページのヘッダー直後、またはページの右真ん中にある「レシピ投稿」ボタンを押します。
-    https://gyazo.com/547d31baa5f78620b5da57a9ed073df9
+  
+    ![Alt Text](https://drive.google.com/file/d/1an--xzVvgDVsAC5qW069T-NG91zrOMcM/view?usp=sharing)
   * カレンダー確認と操作：トップページのヘッダー直後、またはページの右真ん中にある「カレンダー」ボタンを押します。
+  
+    ![Alt Text](https://drive.google.com/file/d/1SKQVtoNGB3-rRdrfCYnNyBYQnYAoLxfI/view?usp=sharing)
   * ショッピングリストー確認と操作：トップページのヘッダー直後、またはページの右真ん中にある「ショッピングリスト」ボタンを押します。
+  
+   ![Alt Text](https://drive.google.com/file/d/1QGw_OlElZV14zFVk5DOn2HNkjLAAKqQ6/view?usp=sharing)
+ 
   * 検索：ヘッダーの真ん中にある検索欄でキーワードを入れて「検索」ボタンを押します。複雑な条件で検索の場合は「検索」ボタンの右にある「複雑な検索」ボタンと押します。
 
 
@@ -53,13 +61,13 @@ Pass: 2021
   今週のメニュー一覧表示
   カレンダーへレシピ登録
   カレンダーに登録されたレシピ・リスト編集と消去
-  カレンダーで1日のカロリー総合表示
 * ショッピングリスト管理
   ショッピングリスト表示
   ショッピングリストの内容を追加
-  ショッピングリストで購入済みの材料の棒線でマークする
 
   **実装予定の機能**
+  ショッピングリストで購入済みの材料の棒線でマークする
+  カレンダーで1日のカロリー総合表示
   他人レシピの「いいね」機能
   他人のレシピを自分のレシピリストに追加する機能
   色々なユーザが投稿するレシピのニュースフィード表示
@@ -70,7 +78,8 @@ Pass: 2021
   レシピのコメント
 
 **データベース設計	ER図**
-![alt text](app/assets/images/er.png "データベース設計	ER図")
+![alt text](app/assets/images/er_0.jpeg "データベース設計	ER図")
+
 
 
 **ローカルでの動作方法**
