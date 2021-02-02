@@ -11,7 +11,7 @@
         </div>
         <% end %>
       <% end %>
-      <div class="index-recipe-name"><%= link_to recipe.name, recipe_path(recipe.id) %></div>
+      <div class="index-recipe-name"><%= link_to recipe.name, recipe_path(recipe.id), class:"name-link" %></div>
       <% if user_signed_in? %>
         <% if recipe.user == current_user %>
           <div class="delete">
