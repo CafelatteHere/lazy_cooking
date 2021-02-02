@@ -4,7 +4,7 @@
     <div class="line"></div>
     <div class="middle-show">
       <div class="left-show">
-      <div class="image"><%= image_tag @recipe.image if @recipe.image.attached? %></div>
+      <div class="show-image"><%= image_tag @recipe.image, class: "show-image" if @recipe.image.attached? %></div>
     </div>
     <div class="right-show">
       <div class="ingredients">
@@ -30,9 +30,9 @@
     <div class="bottom-show-el">
       <%= simple_format @recipe.tips %>
     </div>
-    <div class="tags bottom-show-el">
+    <%# <div class="tags bottom-show-el">
       drink
-    </div>
+    </div> %>
   </div>
   <div class="line"></div>
   <% if current_user == @recipe.user %>
