@@ -28,17 +28,17 @@ Pass: 2021
 **利用方法**
   * ユーザーログイン：ヘッダー右上のユーザーログインボタンを押します。
   
-     ![ユーザーログインgif](img/login.gif)
+    ![ユーザーログインgif](app/assets/images/login.gif)
      
   * レシピ投稿：トップページのヘッダー直後、またはページの右真ん中にある「レシピ投稿」ボタンを押します。
   
-    ![Alt Text](https://drive.google.com/file/d/1an--xzVvgDVsAC5qW069T-NG91zrOMcM/view?usp=sharing)
+    ![Alt Text](app/assets/images/recipe-post.gif)
   * カレンダー確認と操作：トップページのヘッダー直後、またはページの右真ん中にある「カレンダー」ボタンを押します。
   
-    ![Alt Text](https://drive.google.com/file/d/1SKQVtoNGB3-rRdrfCYnNyBYQnYAoLxfI/view?usp=sharing)
+    ![Alt Text](app/assets/images/calendar.gif)
   * ショッピングリストー確認と操作：トップページのヘッダー直後、またはページの右真ん中にある「ショッピングリスト」ボタンを押します。
   
-   ![Alt Text](https://drive.google.com/file/d/1QGw_OlElZV14zFVk5DOn2HNkjLAAKqQ6/view?usp=sharing)
+   ![Alt Text](app/assets/images/shopping-list.gif)
  
   * 検索：ヘッダーの真ん中にある検索欄でキーワードを入れて「検索」ボタンを押します。複雑な条件で検索の場合は「検索」ボタンの右にある「複雑な検索」ボタンと押します。
 
