@@ -84,7 +84,7 @@ Pass: 2021
 
 
 
-## *ローカルでの動作方法**
+## **ローカルでの動作方法**
 
 git cloneしてから、下記のgemのインストールが必要です：
   * gem 'devise',
@@ -93,7 +93,7 @@ git cloneしてから、下記のgemのインストールが必要です：
   * gem 'image_processing', '~> 1.2'
 rails db:migrateを行います。
 
-使用環境：
+### 使用環境：
 フロントエンド： JavaScript
 バックエンド：Ruby on Rails 6.0.0, Ruby 2.6.5p114
 データーベース：MySQL2
