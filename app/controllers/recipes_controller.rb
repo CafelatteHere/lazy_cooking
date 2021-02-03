@@ -50,11 +50,11 @@ class RecipesController < ApplicationController
     redirect_to root_path
   end
 
-  # def search
-  #   return nil if params[:keyword] == ""
-  #   ingredient = Ingredient.where(['i_name LIKE ?', "%#{params[:keyword]}%"])
-  #   render json:{ keyword: tag }
-  # end
+  def search
+    # return nil if params[:keyword] == ""
+    @recipes = Recipe.search(params[:keyword])
+    # render json:{ keyword: tag }
+  end
 
   private
   def recipes_ingredient_params
@@ -62,7 +62,7 @@ class RecipesController < ApplicationController
     # params.require(:recipes_ingredient).permit(:name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, ingredients_attributes: [:i_name], recipe_ingredient_relations_attributes: [:quantity, :measurement_id] ).merge(user_id: current_user.id)
   end
 
-  # def redirect
-  #   redirect_to root_path unless @recipe.user == current_user
-  # end
+  def redirect
+    redirect_to root_path unless @recipe.user == current_user
+  end
 end

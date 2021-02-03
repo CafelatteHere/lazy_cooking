@@ -21,7 +21,13 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredient_relations, dependent: :destroy
 
 
-
+  def self.search(search)
+    if search != ""
+      Recipe.find_by_sql("select * from recipes where name like '%#{search}%'")
+    else
+      Recipe.all
+    end
+  end
 
 
 #   after_initialize :create_ingredient

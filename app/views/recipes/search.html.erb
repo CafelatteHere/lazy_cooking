@@ -1,0 +1,22 @@
+<div class="body">
+  <div class="btns">
+    <%# <div class="recipe-btn"> %>
+      <%= link_to 'レシピ投稿', new_recipe_path , class: "recipe-btn"  %>
+       <%# <%= image_tag 'camera.png' , size: '185x50' ,class: "recipe-btn-icon" %>
+    <%# </div> %>
+    <%= link_to 'カレンダー', calendars_path , class: "calendar-btn"  %>
+    <%# <div class="calendar-btn">カレンダー
+    </div> %>
+    <div class="list-btn">
+      <%= link_to "ショッピング<br/>リスト".html_safe, items_index_path  %>
+    </div>
+  </div>
+
+  <div class="middle-content">
+    <ul class="recipes-bar">
+      <% @recipes.each do |recipe| %>
+        <%= render partial: "recipe", locals: {recipe: recipe} %>
+      <% end %>
+    </ul>
+  </div>
+</div>
