@@ -14,8 +14,12 @@
 
   <div class="middle-content">
     <ul class="recipes-bar">
+      <% if @recipes.length >=1 %>
       <% @recipes.each do |recipe| %>
         <%= render partial: "recipe", locals: {recipe: recipe} %>
+      <% end %>
+      <% else %>
+      <div class="search-no-result">該当なし</div>
       <% end %>
     </ul>
   </div>
