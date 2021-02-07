@@ -1,7 +1,9 @@
-class RecipesIngredient
-  include ActiveModel::Model
+class RecipesIngredient < Reform::Form
+  property :recipe, :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
 
-  attr_accessor :recipe, :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
+  # include ActiveModel::Model
+
+  # attr_accessor :recipe, :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
 
 
     with_options presence: true do
