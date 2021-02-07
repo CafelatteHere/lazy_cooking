@@ -1,6 +1,6 @@
 <%# <%= form_with(model: @recipes_ingredient, local: true) do |form| %>
 <%= form_with(model: @recipes_ingredient, url:recipe_path(@recipe), method: :patch, local: true) do |form| %>
 <%# # <%= form_with(model: @recipes_ingredient,  local: true) do |form| %>
-  <%# <%= render 'shared/error_messages', model: @recipes_ingredient %> %>
+  <%# <%= render 'shared/error_messages', model: @recipes_ingredient %>
   <%= render partial: "form", locals: { form: form } %>
 <% end %>

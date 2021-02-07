@@ -1,7 +1,7 @@
 class RecipesIngredient
   include ActiveModel::Model
 
-  attr_accessor :recipe, :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
+  attr_accessor :recipe, :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id, :ingredients, :recipe_ingredient_relations
 
 
     with_options presence: true do
@@ -17,30 +17,28 @@ class RecipesIngredient
       validates :is_public, allow_blank: true
     end
 
-      # def update
-      #   if valid?
-      #     @recipe.update!(name:recipe_name, image:recipe_image, is_public:is_public, user_id: recipe.user_id)
-      #     @ingredient.update!(i_name: i_name)
-      #     @recipe_ingredient_relations.update!(quantity: quantity, measurement_id: measurement_id)
-      #     true
-      #   else
-      #     false
-      #   end
-      # end
-  #   def initialize(recipe: nil, ingredient: nil, recipe_ingredient_relations: nil, attributes: {})
-  #   if !recipe.nil?
-  #     @recipe = recipe
-  #     @ingredient = @recipe.ingredients.first
-  #     @recipe_ingredient_relations = @recipe.recipe_ingredient_relations
-  #     super(recipe_attributes.merge(attributes))
-  #     super(ingredient_attributes.merge(attributes))
-  #     super(recipe_ingredient_relations_attributes.merge(attributes))
-  #   end
-  #   super(attributes)
-  # end
+  if @recipe
+    delegate :persisted?, to: :recipe
 
+    def to_model
+      recipe
+    end
+
+
+    def initialize(attributes = nil, recipe: Recipe.new)
+      @recipe = recipe
+      # @ingredient = recipe.ingredients.first
+      attributes ||= default_attributes
+      binding.pry
+      super(attributes)
+    end
+  end
 
   def save
+    if @recipe != nil
+      @recipe.update!(name: name, image:image, portions:portions, time_count_id:time_count_id, content:content, tips:tips, calories:calories, is_public:is_public, user_id:user_id)
+      @recipe.ingredients.first.update!(i_name: i_name)
+    else
     recipe = Recipe.new(name:name, image:image, portions:portions, time_count_id:time_count_id, content:content, tips:tips, calories:calories, is_public:is_public, user_id:user_id)
     ingredient = Ingredient.new(i_name: i_name)
     recipe.save
@@ -53,8 +51,21 @@ class RecipesIngredient
        else
       false
        end
+      end
     end
 
+
+    private
+      attr_reader :recipe
+      def default_attributes
+        {
+          name: recipe.name, image: recipe.image, portions: recipe.portions,
+          time_count_id: recipe.time_count_id, content: @ecipe.content,
+          tips: recipe.tips, calories: recipe.calories, is_public: recipe.is_public,
+          user_id: user_id,
+          i_name: i_name, quantity: quantoty, measurement_id: measurement_id
+        }
+      end
   end
 
 

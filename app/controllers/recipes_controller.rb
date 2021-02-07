@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  # before_action :redirect, only: %i[edit destroy]
+  before_action :define_recipe, only: [:edit, :update, :show, :destroy]
+  before_action :redirect, only: %i[edit destroy]
 
 
   def index
@@ -13,9 +14,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipes_ingredient = RecipesIngredient.new(recipes_ingredient_params)
-    @recipes_ingredient.save
-
-    if true
+    if @recipes_ingredient.save
       redirect_to root_path
     else
       render action: :new
@@ -23,29 +22,23 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
-    @ingredient = @recipe.ingredients.first
-    @recipe_ingredient_relations = @recipe.recipe_ingredient_relations.first
-    @recipes_ingredient = RecipesIngredient.new(Recipe.find(params[:id]))
+    @recipes_ingredient = RecipesIngredient.new(recipe: @recipe)
   end
 
   def update
-    @recipes_ingredient = RecipesIngredient.new(Recipe.find(params[:id]))
-    if @recipes_ingredient.validate(update_param)
-      @recipes_ingredient.save
+    @recipes_ingredient = RecipesIngredient.new(recipes_ingredient_params)
+    @recipes_ingredient.recipe = @recipe
+    if @recipes_ingredient.save
       redirect_to recipe_path(@recipe)
     else
-      binding.pry
       render action: :edit
     end
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to root_path
   end
@@ -59,10 +52,13 @@ class RecipesController < ApplicationController
   private
   def recipes_ingredient_params
     params.require(:recipes_ingredient).permit(:name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :ingredient, :recipe_ingredient_relations, :i_name, :quantity, :measurement_id).merge(user_id: current_user.id)
-    # params.require(:recipes_ingredient).permit(:name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, ingredients_attributes: [:i_name], recipe_ingredient_relations_attributes: [:quantity, :measurement_id] ).merge(user_id: current_user.id)
+  end
+
+  def define_recipe
+    @recipe = Recipe.find(params[:id])
   end
 
   def redirect
-    redirect_to root_path unless @recipe.user == current_user
+    redirect_to recipe_path unless @recipe.user == current_user
   end
 end
