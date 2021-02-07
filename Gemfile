@@ -70,5 +70,6 @@ gem 'aws-sdk-s3', require: false
 # gem 'ransack'
 # gem 'reform'
 # gem 'dry-validation'
-
+gem "reform"
+gem "reform-rails"
 

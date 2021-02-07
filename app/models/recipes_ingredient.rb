@@ -1,13 +1,29 @@
-class RecipesIngredient
-  include ActiveModel::Model
+class RecipesIngredient < Reform::Form
+  property :name
+  property :image
+  property :portions
+  property :time_count_id
+  property :content
+  property :tips
+  property :calories
+  property :is_public
+  property :user_id
 
-  attr_accessor :recipe, :name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :user_id, :i_name, :quantity, :measurement_id
+  collection :ingredients do
+    property :i_name
+    validates :i_name, presence: true
+  end
+  collection :recipe_ingredient_relations do
+    property :quantity
+    property  :measurement_id
+    validates :quantity, presence: true, length:{maximum: 10}
+    validates :measurement_id, presence: true
+  end
+
+
 
 
     with_options presence: true do
-      validates :i_name  #, uniqueness: true
-      validates :quantity, length:{maximum: 10}
-      validates :measurement_id
       validates :name
       validates :portions
       validates :time_count_id, numericality: {other_than: 1}
@@ -40,20 +56,20 @@ class RecipesIngredient
   # end
 
 
-  def save
-    recipe = Recipe.new(name:name, image:image, portions:portions, time_count_id:time_count_id, content:content, tips:tips, calories:calories, is_public:is_public, user_id:user_id)
-    ingredient = Ingredient.new(i_name: i_name)
-    recipe.save
-    ingredient.save
+  # def save
+  #   recipe = Recipe.new(name:name, image:image, portions:portions, time_count_id:time_count_id, content:content, tips:tips, calories:calories, is_public:is_public, user_id:user_id)
+  #   ingredient = Ingredient.new
+  #   recipe.save
+  #   ingredient.save
 
-    recipe_ingredient_relations = RecipeIngredientRelation.create(quantity: quantity, measurement_id: measurement_id, recipe_id: recipe.id, ingredient_id:ingredient.id)
-    return false if invalid?
-    if recipe.save && ingredient.save && recipe_ingredient_relations.save
-      true
-       else
-      false
-       end
-    end
+  #   recipe_ingredient_relations = RecipeIngredientRelation.create(quantity: quantity, measurement_id: measurement_id, recipe_id: recipe.id, ingredient_id:ingredient.id)
+  #   return false if invalid?
+  #   if recipe.save && ingredient.save && recipe_ingredient_relations.save
+  #     true
+  #      else
+  #     false
+  #      end
+  #   end
 
   end
 

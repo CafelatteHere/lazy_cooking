@@ -8,13 +8,14 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipes_ingredient = RecipesIngredient.new
+    @recipes_ingredient = RecipesIngredient.new(Recipe.new)
   end
 
   def create
-    @recipes_ingredient = RecipesIngredient.new(recipes_ingredient_params)
+    @recipes_ingredient = RecipesIngredient.new(Recipe.new)
+    if @recipes_ingredient.validate(params[:recipes_ingredient])
     @recipes_ingredient.save
-
+    end
     if true
       redirect_to root_path
     else
