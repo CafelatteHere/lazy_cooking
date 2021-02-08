@@ -4,16 +4,24 @@ function showBtn () {
   recipes.forEach((recipe) => {
     recipe.addEventListener('mouseover', function(e){
       const editBtn = e.target.querySelector('.pencil');
-      editBtn.classList.remove('hide');
+      if ((editBtn)&&(editBtn.classList.contains('hide'))){
+        editBtn.classList.remove('hide');
+      };
       const deleteBtn = e.target.querySelector('.trash');
+     if ((deleteBtn) && (deleteBtn.classList.contains('hide'))){
       deleteBtn.classList.remove('hide');
+     };
     });
 
     recipe.addEventListener('mouseleave', function(e){
       const editBtn = e.target.querySelector('.pencil');
-      editBtn.classList.add('hide');
+      if ((editBtn) && (!(editBtn.classList.contains('hide')))){
+        editBtn.classList.add('hide');
+      };
       const deleteBtn = e.target.querySelector('.trash');
+     if ((deleteBtn) && (!deleteBtn.classList.contains('hide'))){
       deleteBtn.classList.add('hide');
+     };
     });
   });
 };
