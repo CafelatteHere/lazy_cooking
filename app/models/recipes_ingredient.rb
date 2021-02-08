@@ -63,7 +63,7 @@ class RecipesIngredient
           time_count_id: recipe.time_count_id, content: @ecipe.content,
           tips: recipe.tips, calories: recipe.calories, is_public: recipe.is_public,
           user_id: user_id,
-          i_name: i_name, quantity: quantoty, measurement_id: measurement_id
+          i_name: i_name, quantity: quantity, measurement_id: measurement_id
         }
       end
   end
