@@ -119,7 +119,6 @@ a {
   font-size: 24px;
   font-weight: bold;
   padding: 20px 0px 10px 0px;
-  border-bottom: solid 1px #728597;
   color: #223843;
   overflow: hidden;
 }
@@ -131,7 +130,6 @@ a {
   min-width: 80%;
   height: 70px;
   overflow: hidden;
-  border-bottom: solid 1px #728597;
   display: flex;
 }
 
@@ -161,6 +159,10 @@ a {
 .trash{
   width: 18px;
   height: 20px;
+}
+
+.index-line {
+  border-bottom: solid 1px #728597;
 }
 
 .recipe-image-box {

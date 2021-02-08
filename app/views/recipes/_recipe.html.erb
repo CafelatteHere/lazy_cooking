@@ -12,8 +12,9 @@
       <% end %>
 
       <div class="index-recipe-name">
+        <%= link_to recipe_path(recipe.id), class:"name-link", method: :get do %>
         <div  class="name-link"><%= recipe.name %></div>
-        <% link_to recipe.name, recipe_path(recipe.id), class:"name-link" %>
+        <% end %>
       </div>
       <% if user_signed_in? %>
         <% if recipe.user == current_user %>
@@ -23,8 +24,9 @@
         <% end %>
       <% end %>
     </div>
+    <div class="index-line"></div>
      <%= link_to recipe_path(recipe.id), method: :get  do %>
-    <div class="recipe-image-box">
+      <div class="recipe-image-box">
       <%= image_tag recipe.image, class: 'recipe-image' if recipe.image.attached? %>
     </div>
     <% end %>
