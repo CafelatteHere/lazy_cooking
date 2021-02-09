@@ -7,7 +7,7 @@ class Measurement < ActiveHash::Base
     {id: 5, name: '個'},
     {id: 6, name: '枚'},
     {id: 7, name: 'お好みで'},
-    {id: 8, name: '少々'},
+    {id: 8, name: '少々'}
   ]
 
   include ActiveHash::Associations
