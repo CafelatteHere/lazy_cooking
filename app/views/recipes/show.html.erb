@@ -11,13 +11,21 @@
         材料：
         <ul class="list">
           <% @recipe.ingredients.each do |ingredient| %>
-            <li><%= ingredient.i_name %></li>
+            <li><%= ingredient.i_name %>
           <% end %>
+
+          <% @recipe.recipe_ingredient_relations.each do |rir| %>
+              <%= rir.quantity %>
+              <% measurement = Measurement.find_by(id: rir.measurement_id)%>
+              <%= measurement.name %>
+          <% end %>
+             </li>
+
         </ul>
       </div>
       <div class="details-show">
         <div class="details-el">量：<%= @recipe.portions %>人分</div>
-        <div class="details-el">作成時間：<%= @recipe.time_count_id%>分</div>
+        <div class="details-el">作成時間：<%= @recipe.time_count.name%>分</div>
         <div class="details-el">カロリー：<%= @recipe.calories %>kcal</div>
       </div>
     </div>
