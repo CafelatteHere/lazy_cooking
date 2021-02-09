@@ -17,7 +17,7 @@ class RecipesIngredient
       validates :is_public, allow_blank: true
     end
 
-  if @recipe
+  # if @recipe
     delegate :persisted?, to: :recipe
 
     def to_model
@@ -29,15 +29,15 @@ class RecipesIngredient
       @recipe = recipe
       # @ingredient = recipe.ingredients.first
       attributes ||= default_attributes
-      binding.pry
       super(attributes)
     end
-  end
+  # end
 
   def save
-    if @recipe != nil
+    if @recipe
       @recipe.update!(name: name, image:image, portions:portions, time_count_id:time_count_id, content:content, tips:tips, calories:calories, is_public:is_public, user_id:user_id)
       @recipe.ingredients.first.update!(i_name: i_name)
+      @recipe.recipe_ingredient_relations.first.update!(quantity: quantity, measurement_id: measurement_id)
     else
     recipe = Recipe.new(name:name, image:image, portions:portions, time_count_id:time_count_id, content:content, tips:tips, calories:calories, is_public:is_public, user_id:user_id)
     ingredient = Ingredient.new(i_name: i_name)
@@ -56,14 +56,14 @@ class RecipesIngredient
 
 
     private
-      attr_reader :recipe
+      attr_reader :recipe, :ingredient, :recipe_ingredient_relations
       def default_attributes
         {
           name: recipe.name, image: recipe.image, portions: recipe.portions,
-          time_count_id: recipe.time_count_id, content: @ecipe.content,
+          time_count_id: recipe.time_count_id, content: @recipe.content,
           tips: recipe.tips, calories: recipe.calories, is_public: recipe.is_public,
-          user_id: user_id,
-          i_name: i_name, quantity: quantity, measurement_id: measurement_id
+          user_id: recipe.user_id,
+          i_name: recipe.ingredients.first.i_name, quantity: recipe.recipe_ingredient_relations.first.quantity, measurement_id: recipe.recipe_ingredient_relations.first.measurement_id
         }
       end
   end
