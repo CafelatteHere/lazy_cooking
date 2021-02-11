@@ -17,24 +17,25 @@ class RecipesIngredient
       validates :is_public, allow_blank: true
     end
 
-  # if @recipe
-    delegate :persisted?, to: :recipe
+
+  delegate :persisted?, to: :recipe
+
+    def initialize(attributes = nil, recipe: Recipe.new)
+      @recipe = recipe
+      # @ingredient = recipe.ingredients.first
+      if @recipe.id != nil
+      attributes ||= default_attributes
+      end
+      super(attributes)
+    end
 
     def to_model
       recipe
     end
 
 
-    def initialize(attributes = nil, recipe: Recipe.new)
-      @recipe = recipe
-      # @ingredient = recipe.ingredients.first
-      attributes ||= default_attributes
-      super(attributes)
-    end
-  # end
-
   def save
-    if @recipe
+    if @recipe.id != nil
       @recipe.update!(name: name, image:image, portions:portions, time_count_id:time_count_id, content:content, tips:tips, calories:calories, is_public:is_public, user_id:user_id)
       @recipe.ingredients.first.update!(i_name: i_name)
       @recipe.recipe_ingredient_relations.first.update!(quantity: quantity, measurement_id: measurement_id)
@@ -53,7 +54,6 @@ class RecipesIngredient
        end
       end
     end
-
 
     private
       attr_reader :recipe, :ingredient, :recipe_ingredient_relations

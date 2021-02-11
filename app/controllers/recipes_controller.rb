@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipes_ingredient = RecipesIngredient.new(recipes_ingredient_params)
+    @recipes_ingredient = RecipesIngredient.new(recipe_params)
     if @recipes_ingredient.save
       redirect_to root_path
     else
@@ -50,6 +50,10 @@ class RecipesController < ApplicationController
   end
 
   private
+  def recipes_ingredient_params
+    params.require(:recipes_ingredient).permit(:name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :ingredient, :recipe_ingredient_relations, :i_name, :quantity, :measurement_id).merge(user_id: current_user.id)
+  end
+
   def recipe_params
     params.require(:recipe).permit(:name, :image, :portions, :time_count_id, :content, :tips, :calories, :is_public, :ingredient, :recipe_ingredient_relations, :i_name, :quantity, :measurement_id).merge(user_id: current_user.id)
   end
