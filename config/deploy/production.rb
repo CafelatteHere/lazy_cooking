@@ -7,7 +7,7 @@ set :ssh_options, {
 set :ssh_options, {
     forward_agent: true,
     auth_methods: [publickey],
-    keys: [/Users/olgasmirnova/.ssh/id_rsa]
+    keys: [/Users/olgasmirnova/ssh/id_rsa]
   }
 server '18.180.27.147', user: 'ec2-user', roles: %w{app db web}
 # server-based syntax
