@@ -1,6 +1,6 @@
 lock '3.15.0'
 
-set :application, 'lazy_cooking'
+set :application, 'lazycooking'
 
 set :repo_url,  'git@github.com:CafelatteHere/lazy_cooking.git'
 
